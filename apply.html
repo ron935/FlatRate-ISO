@@ -105,16 +105,18 @@ footer{background:#060e1c;padding:48px 0 24px;}
         <h2 style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--navy);margin-bottom:6px;">Partner Application</h2>
         <p style="color:var(--gray-500);font-size:13px;margin-bottom:28px;">Submitted directly to our Atlanta agent team. Response within 1 business day.</p>
 
+        <form id="apply-form">
+        <input type="hidden" name="business" value="flatrate-iso">
         <div class="form-row">
-          <div class="form-group"><label>First Name</label><input type="text" placeholder="First"></div>
-          <div class="form-group"><label>Last Name</label><input type="text" placeholder="Last"></div>
+          <div class="form-group"><label>First Name</label><input type="text" name="first_name" placeholder="First" required></div>
+          <div class="form-group"><label>Last Name</label><input type="text" name="last_name" placeholder="Last" required></div>
         </div>
-        <div class="form-group"><label>Email Address</label><input type="email" placeholder="your@email.com"></div>
-        <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="(xxx) xxx-xxxx"></div>
-        <div class="form-group"><label>City / State</label><input type="text" placeholder="Atlanta, GA"></div>
+        <div class="form-group"><label>Email Address</label><input type="email" name="email" placeholder="your@email.com" required></div>
+        <div class="form-group"><label>Phone Number</label><input type="tel" name="phone" placeholder="(xxx) xxx-xxxx"></div>
+        <div class="form-group"><label>City / State</label><input type="text" name="city_state" placeholder="Atlanta, GA"></div>
         <div class="form-group">
           <label>Partnership Type</label>
-          <select>
+          <select name="service">
             <option value="">— Select your level —</option>
             <option>Independent Agent (New to Payments)</option>
             <option>Experienced Agent</option>
@@ -125,7 +127,7 @@ footer{background:#060e1c;padding:48px 0 24px;}
         </div>
         <div class="form-group">
           <label>Primary Vertical Interest</label>
-          <select>
+          <select name="timeline">
             <option value="">— Select all that apply —</option>
             <option>Government / Municipal</option>
             <option>Auto Repair / Mechanics</option>
@@ -136,7 +138,7 @@ footer{background:#060e1c;padding:48px 0 24px;}
         </div>
         <div class="form-group">
           <label>Current Monthly Portfolio Volume</label>
-          <select>
+          <select name="budget">
             <option>No existing portfolio — starting fresh</option>
             <option>Under $500K/month</option>
             <option>$500K – $2M/month</option>
@@ -146,14 +148,15 @@ footer{background:#060e1c;padding:48px 0 24px;}
         </div>
         <div class="form-group">
           <label>Current Processor / ISO (if applicable)</label>
-          <input type="text" placeholder="e.g. TSYS, First Data, Heartland, etc.">
+          <input type="text" name="company" placeholder="e.g. TSYS, First Data, Heartland, etc.">
         </div>
         <div class="form-group">
           <label>Tell Us About Yourself (optional)</label>
-          <textarea rows="3" placeholder="Sales background, goals, questions, etc."></textarea>
+          <textarea rows="3" name="about" placeholder="Sales background, goals, questions, etc."></textarea>
         </div>
-        <button class="form-submit">Submit Application →</button>
-        <p style="font-size:11px;color:var(--gray-500);text-align:center;margin-top:12px;">No spam. No commitment. A real person will call you back.</p>
+        <button type="submit" class="form-submit">Submit Application →</button>
+        <p id="form-status" style="font-size:11px;color:var(--gray-500);text-align:center;margin-top:12px;">No spam. No commitment. A real person will call you back.</p>
+        </form>
       </div>
 
       <!-- SIDEBAR -->
@@ -249,8 +252,57 @@ document.querySelectorAll('.fade-on-scroll').forEach(el=>{
   el.style.opacity='0';el.style.transform='translateY(24px)';el.style.transition='opacity .6s ease,transform .6s ease';
   new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}});},{threshold:.1}).observe(el);
 });
-document.querySelectorAll('.form-submit').forEach(btn=>{
-  btn.addEventListener('click',function(){{this.textContent='✓ Submitted!';this.style.background='#22c55e';this.style.color='white';setTimeout(()=>{this.textContent='Submit Application →';this.style.background='';this.style.color='';},3000);}});
+var _isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+var apiBase = _isLocal ? 'http://localhost:8888/dashboard/api' : 'https://blue-panther-862989.hostingersite.com/api';
+
+document.getElementById('apply-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var form = this;
+  var btn = form.querySelector('.form-submit');
+  var status = document.getElementById('form-status');
+  var raw = new FormData(form);
+
+  var formData = new FormData();
+  formData.append('business', raw.get('business') || 'flatrate-iso');
+  formData.append('name', ((raw.get('first_name') || '') + ' ' + (raw.get('last_name') || '')).trim());
+  formData.append('email', raw.get('email') || '');
+  formData.append('phone', raw.get('phone') || '');
+  formData.append('company', raw.get('company') || '');
+  formData.append('service', raw.get('service') || '');
+  formData.append('budget', raw.get('budget') || '');
+  formData.append('timeline', raw.get('timeline') || '');
+  var msg = '';
+  if (raw.get('city_state')) msg += 'Location: ' + raw.get('city_state') + '\n\n';
+  if (raw.get('about')) msg += raw.get('about');
+  formData.append('message', msg.trim() || 'Partner application submitted');
+
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  fetch(apiBase + '/submit-quote.php', { method: 'POST', body: formData })
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (data.success) {
+        btn.textContent = '✓ Application Received!';
+        btn.style.background = '#22c55e';
+        btn.style.color = 'white';
+        status.textContent = 'Thank you! Our team will be in touch within 1 business day.';
+        status.style.color = '#22c55e';
+        form.reset();
+      } else {
+        btn.textContent = 'Submit Application →';
+        btn.disabled = false;
+        status.textContent = data.message || 'Something went wrong. Please try again.';
+        status.style.color = '#ef4444';
+      }
+    })
+    .catch(function() {
+      btn.textContent = 'Submit Application →';
+      btn.disabled = false;
+      status.textContent = 'Network error. Please try again.';
+      status.style.color = '#ef4444';
+    });
 });
 </script>
+<script src="https://blue-panther-862989.hostingersite.com/api/tracker.js" data-business="flatrate-iso" defer></script>
 </body></html>
