@@ -1,0 +1,1461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FlatRate ISO | Agent & ISO Partner Program | A Division of Flat Rate Processing</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --navy-mid: #112240;
+    --navy-light: #1a3560;
+    --gold: #d4a843;
+    --gold-light: #f0c96a;
+    --gold-pale: #fdf3dc;
+    --white: #ffffff;
+    --gray-100: #f4f6fa;
+    --gray-300: #c8d0df;
+    --gray-500: #7a8799;
+    --green: #22c55e;
+    --red: #ef4444;
+    --text: #1a2540;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ─── TOPBAR ─── */
+  .topbar {
+    background: var(--navy);
+    color: var(--gray-300);
+    font-size: 12px;
+    font-family: 'DM Mono', monospace;
+    padding: 8px 0;
+    text-align: center;
+    letter-spacing: 0.04em;
+  }
+  .topbar a { color: var(--gold); text-decoration: none; }
+
+  /* ─── NAV ─── */
+  nav {
+    background: var(--navy-mid);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 2px solid var(--gold);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+  }
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+  }
+  .logo-wrap {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+  .logo-main {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: var(--white);
+    letter-spacing: 0.05em;
+  }
+  .logo-main span { color: var(--gold); }
+  .logo-sub {
+    font-size: 9px;
+    color: var(--gray-300);
+    letter-spacing: 0.18em;
+    font-family: 'DM Mono', monospace;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+  .nav-links a {
+    color: var(--gray-300);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    background: var(--gold);
+    color: var(--navy) !important;
+    padding: 10px 22px;
+    border-radius: 4px;
+    font-weight: 700 !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--gold-light) !important; color: var(--navy) !important; }
+
+  /* ─── HERO ─── */
+  .hero {
+    background: var(--navy);
+    min-height: 92vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 80% 50%, rgba(212,168,67,0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 10% 80%, rgba(17,34,64,0.9) 0%, transparent 60%);
+  }
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(212,168,67,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(212,168,67,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 24px;
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .division-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(212,168,67,0.12);
+    border: 1px solid rgba(212,168,67,0.3);
+    color: var(--gold);
+    font-size: 11px;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.14em;
+    padding: 6px 14px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  .division-badge::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.7); }
+  }
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(52px, 6vw, 82px);
+    line-height: 0.95;
+    color: var(--white);
+    margin-bottom: 24px;
+    letter-spacing: 0.02em;
+  }
+  .hero h1 .accent { color: var(--gold); }
+  .hero h1 .line2 {
+    display: block;
+    font-size: clamp(32px, 4vw, 52px);
+    color: var(--gray-300);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    letter-spacing: 0;
+  }
+  .hero-desc {
+    color: var(--gray-300);
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 36px;
+    max-width: 480px;
+  }
+  .hero-btns {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--navy);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 16px 32px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+  .btn-primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(212,168,67,0.3);
+  }
+  .btn-outline {
+    border: 1.5px solid rgba(255,255,255,0.25);
+    color: var(--white);
+    font-size: 14px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 16px 32px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: inline-block;
+    font-weight: 600;
+  }
+  .btn-outline:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .stat-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    padding: 28px 24px;
+    transition: all 0.3s;
+  }
+  .stat-card:hover {
+    background: rgba(212,168,67,0.06);
+    border-color: rgba(212,168,67,0.25);
+    transform: translateY(-3px);
+  }
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-label {
+    color: var(--gray-300);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-family: 'DM Mono', monospace;
+  }
+  .stat-card.highlight {
+    background: rgba(212,168,67,0.08);
+    border-color: rgba(212,168,67,0.2);
+    grid-column: span 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .highlight-text {
+    font-size: 13px;
+    color: var(--gray-300);
+    max-width: 200px;
+    line-height: 1.5;
+  }
+
+  /* ─── SECTION BASE ─── */
+  section { padding: 96px 0; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  .section-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(38px, 4vw, 56px);
+    line-height: 1;
+    color: var(--navy);
+    margin-bottom: 16px;
+  }
+  .section-title.light { color: var(--white); }
+  .section-sub {
+    color: var(--gray-500);
+    font-size: 16px;
+    line-height: 1.7;
+    max-width: 600px;
+  }
+  .section-sub.light { color: var(--gray-300); }
+
+  /* ─── SPLITS SECTION ─── */
+  .splits { background: var(--navy); position: relative; overflow: hidden; }
+  .splits::after {
+    content: '';
+    position: absolute;
+    right: -100px;
+    top: -100px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(212,168,67,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .splits-header { text-align: center; margin-bottom: 60px; }
+  .splits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 48px;
+  }
+  .split-tier {
+    background: var(--navy-mid);
+    padding: 48px 32px;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s;
+  }
+  .split-tier:hover { background: var(--navy-light); }
+  .split-tier.featured {
+    background: linear-gradient(160deg, var(--navy-light) 0%, #0d2450 100%);
+    border: 2px solid var(--gold);
+    margin: -2px;
+    z-index: 2;
+    border-radius: 12px;
+  }
+  .tier-badge {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    padding: 4px 12px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  .tier-badge.standard { background: rgba(255,255,255,0.06); color: var(--gray-300); }
+  .tier-badge.iso { background: rgba(212,168,67,0.15); color: var(--gold); border: 1px solid rgba(212,168,67,0.3); }
+  .tier-badge.master { background: var(--gold); color: var(--navy); font-weight: 700; }
+  .split-pct {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 80px;
+    line-height: 1;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+  .split-pct .pct-sign { font-size: 40px; vertical-align: top; margin-top: 12px; display: inline-block; }
+  .split-label {
+    color: var(--gold);
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .split-features {
+    list-style: none;
+    text-align: left;
+  }
+  .split-features li {
+    color: var(--gray-300);
+    font-size: 13px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .split-features li:last-child { border-bottom: none; }
+  .split-features li::before { content: '✓'; color: var(--gold); font-weight: 700; flex-shrink: 0; }
+  .splits-note {
+    text-align: center;
+    background: rgba(212,168,67,0.06);
+    border: 1px solid rgba(212,168,67,0.15);
+    border-radius: 8px;
+    padding: 24px;
+    color: var(--gray-300);
+    font-size: 13px;
+  }
+  .splits-note strong { color: var(--gold); }
+
+  /* ─── VERTICALS ─── */
+  .verticals { background: var(--gray-100); }
+  .verticals-header { text-align: center; margin-bottom: 64px; }
+  .verticals-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .vertical-card {
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    transition: all 0.3s;
+    position: relative;
+  }
+  .vertical-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.12);
+  }
+  .vertical-banner {
+    height: 10px;
+  }
+  .vertical-card.gov .vertical-banner { background: linear-gradient(90deg, #1a4a8c, #2563eb); }
+  .vertical-card.auto .vertical-banner { background: linear-gradient(90deg, #b45309, #d97706); }
+  .vertical-card.resto .vertical-banner { background: linear-gradient(90deg, #991b1b, #dc2626); }
+  .vertical-body { padding: 36px 32px; }
+  .vertical-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  .vertical-card.gov .vertical-icon { background: #eff6ff; }
+  .vertical-card.auto .vertical-icon { background: #fffbeb; }
+  .vertical-card.resto .vertical-icon { background: #fff1f2; }
+  .vertical-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: var(--navy);
+    margin-bottom: 4px;
+    letter-spacing: 0.02em;
+  }
+  .vertical-tagline {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gray-500);
+    margin-bottom: 20px;
+  }
+  .vertical-desc {
+    color: var(--gray-500);
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 28px;
+  }
+  .vertical-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+  .tool-pill {
+    font-size: 11px;
+    font-family: 'DM Mono', monospace;
+    padding: 5px 12px;
+    border-radius: 100px;
+    letter-spacing: 0.05em;
+  }
+  .vertical-card.gov .tool-pill { background: #eff6ff; color: #1d4ed8; }
+  .vertical-card.auto .tool-pill { background: #fffbeb; color: #92400e; }
+  .vertical-card.resto .tool-pill { background: #fff1f2; color: #991b1b; }
+  .vertical-stat {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 0;
+    border-top: 1px solid var(--gray-100);
+  }
+  .vstat-label { font-size: 12px; color: var(--gray-500); }
+  .vstat-value { font-weight: 700; font-size: 14px; color: var(--navy); }
+
+  /* ─── WHY FRP ─── */
+  .why-frp { background: var(--white); }
+  .why-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .why-visual {
+    background: var(--navy);
+    border-radius: 16px;
+    padding: 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .why-visual::before {
+    content: '';
+    position: absolute;
+    bottom: -60px;
+    right: -60px;
+    width: 280px;
+    height: 280px;
+    background: radial-gradient(circle, rgba(212,168,67,0.12) 0%, transparent 70%);
+  }
+  .why-visual-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--gold);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+  .income-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .income-row:last-child { border-bottom: none; }
+  .income-label { color: var(--gray-300); font-size: 13px; }
+  .income-amount { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--gold); }
+  .income-note { font-size: 11px; color: var(--gray-500); font-family: 'DM Mono', monospace; }
+  .total-row {
+    margin-top: 24px;
+    padding: 24px;
+    background: rgba(212,168,67,0.08);
+    border: 1px solid rgba(212,168,67,0.2);
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .total-label { color: var(--white); font-weight: 600; font-size: 14px; }
+  .total-amount { font-family: 'Bebas Neue', sans-serif; font-size: 44px; color: var(--gold); }
+  .why-list { list-style: none; }
+  .why-item {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 32px;
+    align-items: flex-start;
+  }
+  .why-icon-wrap {
+    width: 48px;
+    height: 48px;
+    background: var(--gold-pale);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .why-item-title { font-weight: 700; font-size: 15px; color: var(--navy); margin-bottom: 6px; }
+  .why-item-desc { color: var(--gray-500); font-size: 14px; line-height: 1.6; }
+
+  /* ─── TOOLS SECTION ─── */
+  .tools-section { background: var(--navy-mid); }
+  .tools-header { text-align: center; margin-bottom: 60px; }
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 48px;
+  }
+  .tool-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 10px;
+    padding: 32px 24px;
+    text-align: center;
+    transition: all 0.3s;
+  }
+  .tool-card:hover {
+    background: rgba(212,168,67,0.06);
+    border-color: rgba(212,168,67,0.2);
+    transform: translateY(-4px);
+  }
+  .tool-card-icon { font-size: 32px; margin-bottom: 16px; }
+  .tool-card-name { color: var(--white); font-weight: 600; font-size: 15px; margin-bottom: 8px; }
+  .tool-card-desc { color: var(--gray-500); font-size: 13px; line-height: 1.6; }
+  .tools-banner {
+    background: rgba(212,168,67,0.08);
+    border: 1px solid rgba(212,168,67,0.2);
+    border-radius: 10px;
+    padding: 32px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+  }
+  .tools-banner-text { color: var(--white); font-size: 16px; line-height: 1.6; }
+  .tools-banner-text strong { color: var(--gold); }
+
+  /* ─── PROCESS ─── */
+  .process { background: var(--gray-100); }
+  .process-header { text-align: center; margin-bottom: 64px; }
+  .steps-track {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    position: relative;
+  }
+  .steps-track::before {
+    content: '';
+    position: absolute;
+    top: 32px;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold) 0%, rgba(212,168,67,0.2) 100%);
+  }
+  .step {
+    text-align: center;
+    padding: 0 12px;
+    position: relative;
+    z-index: 2;
+  }
+  .step-num {
+    width: 64px;
+    height: 64px;
+    background: var(--white);
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: var(--gold);
+    margin: 0 auto 20px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  }
+  .step-title { font-weight: 700; font-size: 14px; color: var(--navy); margin-bottom: 8px; }
+  .step-desc { color: var(--gray-500); font-size: 12px; line-height: 1.6; }
+
+  /* ─── TESTIMONIALS ─── */
+  .testimonials { background: var(--white); }
+  .testimonials-header { text-align: center; margin-bottom: 60px; }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .testi-card {
+    background: var(--gray-100);
+    border-radius: 12px;
+    padding: 36px 32px;
+    position: relative;
+    border-left: 3px solid var(--gold);
+    transition: all 0.3s;
+  }
+  .testi-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+  .testi-quote {
+    font-size: 15px;
+    color: var(--text);
+    line-height: 1.7;
+    margin-bottom: 24px;
+    font-style: italic;
+  }
+  .testi-author { display: flex; align-items: center; gap: 14px; }
+  .testi-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    color: var(--gold);
+  }
+  .testi-name { font-weight: 700; font-size: 14px; color: var(--navy); }
+  .testi-role { font-size: 12px; color: var(--gray-500); font-family: 'DM Mono', monospace; }
+  .testi-earnings {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--navy);
+    color: var(--gold);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    padding: 4px 12px;
+    border-radius: 4px;
+  }
+
+  /* ─── CTA ─── */
+  .cta-section { background: var(--navy); }
+  .cta-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .cta-form-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 48px 44px;
+  }
+  .form-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    color: var(--navy);
+    margin-bottom: 8px;
+    letter-spacing: 0.02em;
+  }
+  .form-sub { color: var(--gray-500); font-size: 13px; margin-bottom: 28px; }
+  .form-group { margin-bottom: 16px; }
+  .form-group label { display: block; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--navy); margin-bottom: 6px; }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1.5px solid var(--gray-300);
+    border-radius: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s;
+    background: var(--white);
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: var(--gold); }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .form-submit {
+    width: 100%;
+    background: var(--navy);
+    color: var(--gold);
+    border: none;
+    padding: 16px;
+    border-radius: 6px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 8px;
+  }
+  .form-submit:hover { background: var(--gold); color: var(--navy); }
+  .form-disclaimer { font-size: 11px; color: var(--gray-500); text-align: center; margin-top: 12px; }
+
+  /* ─── FOOTER ─── */
+  footer { background: #060e1c; padding: 48px 0 24px; }
+  .footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .footer-brand p { color: var(--gray-500); font-size: 13px; line-height: 1.7; margin-top: 12px; max-width: 280px; }
+  .footer-col-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .footer-links { list-style: none; }
+  .footer-links li { margin-bottom: 10px; }
+  .footer-links a { color: var(--gray-500); font-size: 13px; text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--gray-500);
+    font-size: 12px;
+    font-family: 'DM Mono', monospace;
+  }
+  .footer-bottom a { color: var(--gold); text-decoration: none; }
+  .frp-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--gold);
+    font-size: 12px;
+  }
+  .frp-link::before {
+    content: '↗';
+    font-size: 14px;
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up {
+    animation: fadeUp 0.7s ease forwards;
+  }
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.3s; }
+  .delay-4 { animation-delay: 0.4s; }
+
+  /* ─── SCROLLBAR ─── */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--navy); }
+  ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+  @media (max-width: 768px) {
+    .hero-inner, .why-layout, .cta-inner { grid-template-columns: 1fr; }
+    .splits-grid, .verticals-grid, .testimonials-grid, .tools-grid { grid-template-columns: 1fr; }
+    .steps-track { grid-template-columns: 1fr 1fr; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+    .stat-card.highlight { grid-column: span 1; flex-direction: column; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+    .steps-track::before { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  A Division of <strong><a href="https://flatrateprocessing.com" target="_blank">Flat Rate Processing (FRP)</a></strong> · Est. 2004 · Atlanta, GA · Agent Support: <a href="tel:4049901183">404-990-1183</a>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="logo-wrap">
+      <div class="logo-main"><span>FlatRate</span> ISO</div>
+      <div class="logo-sub">Agent & ISO Partner Program</div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="splits.html">Splits</a></li>
+      <li><a href="verticals.html">Verticals</a></li>
+      <li><a href="tools.html">Tools</a></li>
+      <li><a href="how-it-works.html">How It Works</a></li><li><a href="government.html">Government</a></li>
+      <li><a href="apply.html" class="nav-cta">Apply Now</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="fade-up">
+      <div class="division-badge">A Division of Flat Rate Processing</div>
+      <h1>
+        Build Your<br>
+        <span class="accent">Residual</span><br>
+        <span class="line2">Income Empire.</span>
+      </h1>
+      <p class="hero-desc">
+        FlatRate ISO gives independent agents and ISOs the most competitive splits in the industry — backed by FRP's proven technology, vertical-specific tools, and two decades of merchant relationships.
+      </p>
+      <div class="hero-btns">
+        <a href="apply.html" class="btn-primary">Apply to Partner →</a>
+        <a href="splits.html" class="btn-outline">View Split Schedule</a>
+      </div>
+    </div>
+    <div class="hero-stats fade-up delay-2">
+      <div class="stat-card">
+        <div class="stat-num">85<span style="font-size:32px">%</span></div>
+        <div class="stat-label">Max Agent Split</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">$0</div>
+        <div class="stat-label">Upfront Cost</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Niche Verticals</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">20+</div>
+        <div class="stat-label">Years in Industry</div>
+      </div>
+      <div class="stat-card highlight">
+        <div>
+          <div class="stat-num" style="font-size:36px">Lifetime</div>
+          <div class="stat-label">Residual Ownership</div>
+        </div>
+        <div class="highlight-text">Your book of business stays yours. No clawbacks, no account reassignments.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPLITS -->
+<section class="splits" id="splits">
+  <div class="container">
+    <div class="splits-header">
+      <div class="section-eyebrow">Residual Compensation</div>
+      <h2 class="section-title light">Industry-High Split Schedule</h2>
+      <p class="section-sub light">Three tiers designed to grow with you — from your first merchant to managing a portfolio of hundreds.</p>
+    </div>
+    <div class="splits-grid">
+      <div class="split-tier">
+        <div class="tier-badge standard">Agent</div>
+        <div class="split-pct"><span class="pct-sign">%</span>70</div>
+        <div class="split-label">Residual Split</div>
+        <ul class="split-features">
+          <li>Monthly residual payments</li>
+          <li>FRP training & certification</li>
+          <li>Sales collateral & scripts</li>
+          <li>Dedicated onboarding support</li>
+          <li>Access to merchant leads</li>
+          <li>Government portal access</li>
+        </ul>
+      </div>
+      <div class="split-tier featured">
+        <div class="tier-badge iso">ISO Partner</div>
+        <div class="split-pct"><span class="pct-sign">%</span>80</div>
+        <div class="split-label">Residual Split</div>
+        <ul class="split-features">
+          <li>Everything in Agent tier</li>
+          <li>Sub-agent recruiting rights</li>
+          <li>White-label proposal tools</li>
+          <li>Vertical-specific toolkits</li>
+          <li>Priority underwriting queue</li>
+          <li>Co-branded marketing assets</li>
+          <li>Quarterly business reviews</li>
+        </ul>
+      </div>
+      <div class="split-tier">
+        <div class="tier-badge master">Master ISO</div>
+        <div class="split-pct"><span class="pct-sign">%</span>85</div>
+        <div class="split-label">Residual Split</div>
+        <ul class="split-features">
+          <li>Everything in ISO Partner tier</li>
+          <li>Override on sub-agent residuals</li>
+          <li>Custom pricing authority</li>
+          <li>Direct processor relationships</li>
+          <li>Dedicated account executive</li>
+          <li>Portfolio acquisition support</li>
+          <li>Annual revenue bonuses</li>
+        </ul>
+      </div>
+    </div>
+    <div class="splits-note">
+      <strong>Lifetime Residual Ownership Guaranteed.</strong> Your accounts belong to you — not FlatRate ISO. If you ever leave the program, your residuals stay with your book of business. No non-competes, no clawbacks.
+    </div>
+  </div>
+</section>
+
+<!-- VERTICALS -->
+<section class="verticals" id="verticals">
+  <div class="container">
+    <div class="verticals-header">
+      <div class="section-eyebrow">Niche Market Expertise</div>
+      <h2 class="section-title">Built for the Verticals That Matter</h2>
+      <p class="section-sub" style="margin:0 auto">We've built specialized tools, pricing programs, and sales playbooks for three underserved markets that are hungry for better processing solutions.</p>
+    </div>
+    <div class="verticals-grid">
+
+      <!-- GOVERNMENT -->
+      <div class="vertical-card gov">
+        <div class="vertical-banner"></div>
+        <div class="vertical-body">
+          <div class="vertical-icon">🏛️</div>
+          <div class="vertical-name">Government</div>
+          <div class="vertical-tagline">Municipalities · Utilities · Courts · Parks & Rec</div>
+          <p class="vertical-desc">FRP's sister company, Government Portal, already serves hundreds of municipalities. You get a warm door-opener and proven technology that speaks the language of government procurement.</p>
+          <div class="vertical-tools">
+            <span class="tool-pill">Government Portal Integration</span>
+            <span class="tool-pill">Compliance-Ready Docs</span>
+            <span class="tool-pill">RFP Proposal Templates</span>
+            <span class="tool-pill">Surcharge / Convenience Fee</span>
+            <span class="tool-pill">ACH + Card Acceptance</span>
+          </div>
+          <div class="vertical-stat">
+            <span class="vstat-label">Avg. Monthly Volume</span>
+            <span class="vstat-value">$180K+</span>
+          </div>
+          <div class="vertical-stat">
+            <span class="vstat-label">Typical Contract Length</span>
+            <span class="vstat-value">3–5 Years</span>
+          </div>
+          <div class="vertical-stat">
+            <span class="vstat-label">Residual Stability</span>
+            <span class="vstat-value">⭐ Very High</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- AUTO -->
+      <div class="vertical-card auto">
+        <div class="vertical-banner"></div>
+        <div class="vertical-body">
+          <div class="vertical-icon">🔧</div>
+          <div class="vertical-name">Auto Repair</div>
+          <div class="vertical-tagline">Shops · Dealerships · Fleet · Mobile Mechanics</div>
+          <p class="vertical-desc">High average tickets, loyal customer bases, and minimal tech integration make auto repair shops one of the most profitable and easiest-to-close verticals in merchant services.</p>
+          <div class="vertical-tools">
+            <span class="tool-pill">Shop Management Integrations</span>
+            <span class="tool-pill">Text-to-Pay Links</span>
+            <span class="tool-pill">Parts Financing Options</span>
+            <span class="tool-pill">Fleet Card Processing</span>
+            <span class="tool-pill">Estimate-to-Payment Flow</span>
+          </div>
+          <div class="vertical-stat">
+            <span class="vstat-label">Avg. Ticket Size</span>
+            <span class="vstat-value">$420–$850</span>
+          </div>
+          <div class="vertical-stat">
+            <span class="vstat-label">Avg. Monthly Volume</span>
+            <span class="vstat-value">$65K–$120K</span>
+          </div>
+          <div class="vertical-stat">
+            <span class="vstat-label">Close Rate (Trained Agents)</span>
+            <span class="vstat-value">1 in 4 visits</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RESTAURANTS -->
+      <div class="vertical-card resto">
+        <div class="vertical-banner"></div>
+        <div class="vertical-body">
+          <div class="vertical-icon">🍽️</div>
+          <div class="vertical-name">Restaurants</div>
+          <div class="vertical-tagline">QSR · Full Service · Food Trucks · Bars & Cafes</div>
+          <p class="vertical-desc">The restaurant vertical is massive — and most owners are overpaying by 1%+ with legacy processors. Our statement analysis closes itself. High volume means high residuals for life.</p>
+          <div class="vertical-tools">
+            <span class="tool-pill">POS System Integrations</span>
+            <span class="tool-pill">Tip Adjustment Flows</span>
+            <span class="tool-pill">Dual Pricing / Cash Discount</span>
+            <span class="tool-pill">Online Ordering Payments</span>
+            <span class="tool-pill">Free Statement Analysis</span>
+          </div>
+          <div class="vertical-stat">
+            <span class="vstat-label">Avg. Monthly Volume</span>
+            <span class="vstat-value">$55K–$200K</span>
+          </div>
+          <div class="vertical-stat">
+            <span class="vstat-label">Typical Savings Found</span>
+            <span class="vstat-value">0.8%–1.4%</span>
+          </div>
+          <div class="vertical-stat">
+            <span class="vstat-label">Decision Maker Access</span>
+            <span class="vstat-value">⭐ Very Easy</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHY FRP -->
+<section class="why-frp">
+  <div class="container">
+    <div class="why-layout">
+      <div>
+        <div class="section-eyebrow">Why FlatRate ISO</div>
+        <h2 class="section-title">Built Different.<br>Pays Different.</h2>
+        <p class="section-sub" style="margin-bottom:40px">Most ISOs give you a rate sheet and walk away. We give you a playbook, tools, and a team that wins alongside you.</p>
+        <ul class="why-list">
+          <li class="why-item">
+            <div class="why-icon-wrap">📊</div>
+            <div>
+              <div class="why-item-title">Free Statement Analysis Tool</div>
+              <div class="why-item-desc">Show any merchant exactly where they're being overcharged — in minutes. Our analysis tool is the most powerful door-opener in the field.</div>
+            </div>
+          </li>
+          <li class="why-item">
+            <div class="why-icon-wrap">🏛️</div>
+            <div>
+              <div class="why-item-title">Government Portal Warm Introductions</div>
+              <div class="why-item-desc">FRP's Government Portal division gives you credibility and referrals in the municipal space that independent agents simply can't replicate.</div>
+            </div>
+          </li>
+          <li class="why-item">
+            <div class="why-icon-wrap">🛠️</div>
+            <div>
+              <div class="why-item-title">Vertical-Specific Sales Playbooks</div>
+              <div class="why-item-desc">Purpose-built scripts, objection handlers, and proposal templates for Government, Auto Repair, and Restaurant accounts.</div>
+            </div>
+          </li>
+          <li class="why-item">
+            <div class="why-icon-wrap">💸</div>
+            <div>
+              <div class="why-item-title">Fastest Residual Payout in the Industry</div>
+              <div class="why-item-desc">Residuals paid monthly, with transparent reporting. You'll always know exactly how much you've earned and from which accounts.</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="why-visual">
+        <div class="why-visual-title">// Sample ISO Income Projection</div>
+        <div class="income-row">
+          <div>
+            <div class="income-label">10 Restaurant Accounts</div>
+            <div class="income-note">avg $100K/mo each</div>
+          </div>
+          <div style="text-align:right">
+            <div class="income-amount">$2,400</div>
+            <div class="income-note">/month</div>
+          </div>
+        </div>
+        <div class="income-row">
+          <div>
+            <div class="income-label">8 Auto Repair Shops</div>
+            <div class="income-note">avg $80K/mo each</div>
+          </div>
+          <div style="text-align:right">
+            <div class="income-amount">$1,920</div>
+            <div class="income-note">/month</div>
+          </div>
+        </div>
+        <div class="income-row">
+          <div>
+            <div class="income-label">3 Government Contracts</div>
+            <div class="income-note">avg $175K/mo each</div>
+          </div>
+          <div style="text-align:right">
+            <div class="income-amount">$2,520</div>
+            <div class="income-note">/month</div>
+          </div>
+        </div>
+        <div class="income-row">
+          <div>
+            <div class="income-label">Sub-Agent Overrides (5 agents)</div>
+            <div class="income-note">at Master ISO tier</div>
+          </div>
+          <div style="text-align:right">
+            <div class="income-amount">$1,800</div>
+            <div class="income-note">/month</div>
+          </div>
+        </div>
+        <div class="total-row">
+          <div class="total-label">Monthly Residual Income</div>
+          <div class="total-amount">$8,640</div>
+        </div>
+        <p style="color:var(--gray-500);font-size:11px;margin-top:16px;font-family:'DM Mono',monospace;">*Illustrative projection based on 80% ISO split. Actual results vary.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section class="tools-section" id="tools">
+  <div class="container">
+    <div class="tools-header">
+      <div class="section-eyebrow">Agent Toolkit</div>
+      <h2 class="section-title light">Everything You Need to Close</h2>
+      <p class="section-sub light" style="margin:0 auto">From the first pitch to processing the first dollar — we've built the tools so you can focus on selling.</p>
+    </div>
+    <div class="tools-grid">
+      <div class="tool-card">
+        <div class="tool-card-icon">📋</div>
+        <div class="tool-card-name">Statement Analyzer</div>
+        <div class="tool-card-desc">Upload any merchant statement and instantly identify savings. The #1 door-opener in the field.</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-card-icon">📄</div>
+        <div class="tool-card-name">Proposal Generator</div>
+        <div class="tool-card-desc">Auto-populate branded merchant proposals in under 2 minutes. Available in all 3 verticals.</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-card-icon">📱</div>
+        <div class="tool-card-name">Agent Mobile App</div>
+        <div class="tool-card-desc">Track residuals, submit new merchants, and access your portfolio from anywhere.</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-card-icon">🎓</div>
+        <div class="tool-card-name">Certification Training</div>
+        <div class="tool-card-desc">Self-paced online curriculum covering pricing, verticals, and objection handling.</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-card-icon">🏛️</div>
+        <div class="tool-card-name">Gov Portal Access</div>
+        <div class="tool-card-desc">Tap into FRP's established Government Portal relationships for warm municipal introductions.</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-card-icon">📊</div>
+        <div class="tool-card-name">Residual Dashboard</div>
+        <div class="tool-card-desc">Real-time reporting on every account — volume, effective rate, and your monthly payout.</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-card-icon">🎨</div>
+        <div class="tool-card-name">Co-Brand Marketing</div>
+        <div class="tool-card-desc">Customizable flyers, digital ads, and door hangers for all three target verticals.</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-card-icon">🤝</div>
+        <div class="tool-card-name">Dedicated Support</div>
+        <div class="tool-card-desc">Real humans in Atlanta, GA. Not a ticket queue — a direct line to your account team.</div>
+      </div>
+    </div>
+    <div class="tools-banner">
+      <div class="tools-banner-text">
+        FlatRate ISO agents also get access to <strong>FRP's integration network</strong> — 90% of eligible business software on the market, including POS systems, shop management tools, and government payment platforms. Your merchants don't have to change how they work.
+      </div>
+      <a href="apply.html" class="btn-primary" style="white-space:nowrap">Get Access Now →</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="container">
+    <div class="process-header">
+      <div class="section-eyebrow">Getting Started</div>
+      <h2 class="section-title">From Application to First Residual Check</h2>
+      <p class="section-sub" style="margin:0 auto">Most agents are closing their first account within 30 days of joining. Here's how it works.</p>
+    </div>
+    <div class="steps-track">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-title">Apply Online</div>
+        <div class="step-desc">Submit your application. No fees, no experience required. We'll reach out within 24 hours.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-title">Get Certified</div>
+        <div class="step-desc">Complete FRP's certification program — learn pricing, verticals, and how to run a statement analysis.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-title">Get Your Kit</div>
+        <div class="step-desc">Receive login access to all tools, co-branded materials, and your vertical-specific sales playbook.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-title">Close Accounts</div>
+        <div class="step-desc">Hit the field. Submit new merchants through the portal and our team handles underwriting fast.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">05</div>
+        <div class="step-title">Get Paid</div>
+        <div class="step-desc">Residuals deposited monthly. Watch your portfolio grow. Scale up to ISO or Master ISO at any time.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="container">
+    <div class="testimonials-header">
+      <div class="section-eyebrow">Agent Stories</div>
+      <h2 class="section-title">What Our Partners Say</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testi-card">
+        <div class="testi-earnings">$6,200/mo</div>
+        <p class="testi-quote">"I came from a different ISO that kept clawing back accounts. FlatRate ISO put the residuals in my name from day one. I closed 3 auto shops in my first month using their statement analyzer — it practically closes itself."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">MR</div>
+          <div>
+            <div class="testi-name">Marcus R.</div>
+            <div class="testi-role">ISO Partner · Atlanta, GA</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-earnings">$11,400/mo</div>
+        <p class="testi-quote">"The government vertical is unlike anything else in payments. Long contracts, massive volume, almost zero attrition. FRP already had relationships at City Hall — I just walked in with a warm introduction."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">JT</div>
+          <div>
+            <div class="testi-name">Jennifer T.</div>
+            <div class="testi-role">Master ISO · Dallas, TX</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-earnings">$3,800/mo</div>
+        <p class="testi-quote">"I'd been selling insurance for 8 years. A friend told me about residuals and I was skeptical. 6 months in and I have 22 restaurant accounts paying me every single month — whether I work or not. Best decision I ever made."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">DK</div>
+          <div>
+            <div class="testi-name">Derek K.</div>
+            <div class="testi-role">Agent · Nashville, TN</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA / APPLY -->
+<section class="cta-section" id="apply">
+  <div class="container">
+    <div class="cta-inner">
+      <div>
+        <div class="section-eyebrow">Join FlatRate ISO</div>
+        <h2 class="section-title light">Start Building<br>Residual Income<br><span style="color:var(--gold)">Today.</span></h2>
+        <p class="section-sub light" style="margin-bottom:40px">No experience required. No upfront cost. Just apply, get certified, and start closing. The only question is: how big do you want to build?</p>
+        <div style="display:flex;flex-direction:column;gap:20px;">
+          <div style="display:flex;align-items:center;gap:16px;">
+            <div style="width:40px;height:40px;background:rgba(212,168,67,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">✓</div>
+            <span style="color:var(--gray-300);font-size:14px;">Splits up to 85% — among the highest in the industry</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:16px;">
+            <div style="width:40px;height:40px;background:rgba(212,168,67,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">✓</div>
+            <span style="color:var(--gray-300);font-size:14px;">Specialized vertical toolkits for Gov, Auto & Restaurant</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:16px;">
+            <div style="width:40px;height:40px;background:rgba(212,168,67,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">✓</div>
+            <span style="color:var(--gray-300);font-size:14px;">Lifetime residual ownership — your book, your money</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:16px;">
+            <div style="width:40px;height:40px;background:rgba(212,168,67,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">✓</div>
+            <span style="color:var(--gray-300);font-size:14px;">Backed by FRP — 20+ years, hundreds of active merchants</span>
+          </div>
+        </div>
+      </div>
+      <div class="cta-form-card">
+        <div class="form-title">Apply to Partner</div>
+        <div class="form-sub">Fill out the form and an FRP agent specialist will contact you within one business day.</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" placeholder="Marcus">
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" placeholder="Reynolds">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="marcus@example.com">
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" placeholder="(404) 555-0100">
+        </div>
+        <div class="form-group">
+          <label>Partnership Type</label>
+          <select>
+            <option value="">— Select —</option>
+            <option>Independent Agent (New to Payments)</option>
+            <option>Experienced Agent</option>
+            <option>ISO Partner</option>
+            <option>Master ISO</option>
+            <option>Looking to Port a Portfolio</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Primary Vertical Interest</label>
+          <select>
+            <option value="">— Select all that apply —</option>
+            <option>Government / Municipal</option>
+            <option>Auto Repair / Mechanics</option>
+            <option>Restaurants / Food Service</option>
+            <option>All Three Verticals</option>
+            <option>General Merchant Services</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Current Monthly Portfolio Volume (if any)</label>
+          <select>
+            <option>No existing portfolio</option>
+            <option>Under $500K/mo</option>
+            <option>$500K – $2M/mo</option>
+            <option>$2M – $10M/mo</option>
+            <option>Over $10M/mo</option>
+          </select>
+        </div>
+        <button class="form-submit">Submit Application →</button>
+        <div class="form-disclaimer">By submitting, you agree to be contacted by a FlatRate ISO partner specialist. No spam, ever.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo-main" style="font-family:'Bebas Neue',sans-serif;font-size:24px;color:white;"><span style="color:var(--gold)">FlatRate</span> ISO</div>
+        <p>FlatRate ISO is the agent and independent sales organization partner program of Flat Rate Processing — a transparent payment solutions company serving merchants since 2004.</p>
+        <div style="margin-top:16px;">
+          <a href="https://flatrateprocessing.com" class="frp-link" target="_blank"> Visit FlatRateProcessing.com</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Program</div>
+        <ul class="footer-links">
+          <li><a href="splits.html">Split Schedule</a></li>
+          <li><a href="verticals.html">Target Verticals</a></li>
+          <li><a href="tools.html">Agent Tools</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li><li><a href="government.html">Government</a></li>
+          <li><a href="apply.html">Apply Now</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Verticals</div>
+        <ul class="footer-links">
+          <li><a href="verticals.html">Government</a></li>
+          <li><a href="verticals.html">Auto Repair</a></li>
+          <li><a href="verticals.html">Restaurants</a></li>
+          <li><a href="https://governmentportal.com" target="_blank">Government Portal ↗</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="tel:4049901183">404-990-1183</a></li>
+          <li><a href="/cdn-cgi/l/email-protection#86eff5e9c6e0eae7f2f4e7f2e3eff5e9a8e5e9eb"><span class="__cf_email__" data-cfemail="9ef7edf1def8f2ffeaecffeafbf7edf1b0fdf1f3">[email&#160;protected]</span></a></li>
+          <li><a href="#">Atlanta, GA</a></li>
+          <li><a href="https://flatrateprocessing.com" target="_blank">FlatRateProcessing.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 FlatRate ISO · A Division of Flat Rate Processing · All Rights Reserved</span>
+      <span>FlatRateISO.com · <a href="https://flatrateprocessing.com" target="_blank">FlatRateProcessing.com</a></span>
+    </div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Smooth nav active state
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.getAttribute('id');
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--gold)' : '';
+    });
+  });
+
+  // Form submission feedback
+  document.querySelector('.form-submit').addEventListener('click', function() {
+    this.textContent = '✓ Application Received!';
+    this.style.background = 'var(--green)';
+    this.style.color = 'white';
+    setTimeout(() => {
+      this.textContent = 'Submit Application →';
+      this.style.background = '';
+      this.style.color = '';
+    }, 3000);
+  });
+
+  // Fade-up on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.vertical-card, .split-tier, .testi

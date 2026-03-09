@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Split Schedule | FlatRate ISO – A Division of Flat Rate Processing</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0a1628;--navy-mid:#112240;--navy-light:#1a3560;
+  --gold:#d4a843;--gold-light:#f0c96a;--gold-pale:#fdf3dc;
+  --white:#ffffff;--gray-100:#f4f6fa;--gray-300:#c8d0df;
+  --gray-500:#7a8799;--green:#22c55e;--text:#1a2540;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden;}
+::-webkit-scrollbar{width:6px;}::-webkit-scrollbar-track{background:var(--navy);}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px;}
+.topbar{background:var(--navy);color:var(--gray-300);font-size:12px;font-family:'DM Mono',monospace;padding:8px 0;text-align:center;letter-spacing:.04em;}
+.topbar a{color:var(--gold);text-decoration:none;}
+nav{background:var(--navy-mid);position:sticky;top:0;z-index:100;border-bottom:2px solid var(--gold);box-shadow:0 4px 24px rgba(0,0,0,.3);}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:68px;}
+.logo-wrap{display:flex;flex-direction:column;line-height:1;text-decoration:none;}
+.logo-main{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--white);letter-spacing:.05em;}
+.logo-main span{color:var(--gold);}
+.logo-sub{font-size:9px;color:var(--gray-300);letter-spacing:.18em;font-family:'DM Mono',monospace;text-transform:uppercase;margin-top:2px;}
+.nav-links{display:flex;gap:28px;list-style:none;align-items:center;}
+.nav-links a{color:var(--gray-300);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;transition:color .2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--gold);}
+.nav-cta{background:var(--gold)!important;color:var(--navy)!important;padding:10px 22px;border-radius:4px;font-weight:700!important;}
+.nav-cta:hover{background:var(--gold-light)!important;}
+.btn-primary{background:var(--gold);color:var(--navy);font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;padding:16px 32px;border-radius:4px;text-decoration:none;transition:all .2s;display:inline-block;}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(212,168,67,.3);}
+.btn-outline{border:1.5px solid rgba(255,255,255,.25);color:var(--white);font-size:14px;letter-spacing:.06em;text-transform:uppercase;padding:16px 32px;border-radius:4px;text-decoration:none;transition:all .2s;display:inline-block;font-weight:600;}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);}
+section{padding:96px 0;}
+.container{max-width:1200px;margin:0 auto;padding:0 24px;}
+.section-eyebrow{font-family:'DM Mono',monospace;font-size:11px;color:var(--gold);letter-spacing:.2em;text-transform:uppercase;margin-bottom:12px;}
+.section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(38px,4vw,56px);line-height:1;color:var(--navy);margin-bottom:16px;}
+.section-title.light{color:var(--white);}
+.section-sub{color:var(--gray-500);font-size:16px;line-height:1.7;max-width:600px;}
+.section-sub.light{color:var(--gray-300);}
+.page-hero{background:var(--navy);padding:80px 0 72px;position:relative;overflow:hidden;}
+.page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 80% at 90% 50%,rgba(212,168,67,.07) 0%,transparent 70%);}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(212,168,67,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(212,168,67,.03) 1px,transparent 1px);background-size:60px 60px;}
+.page-hero-inner{max-width:1200px;margin:0 auto;padding:0 24px;position:relative;z-index:2;}
+.breadcrumb{font-family:'DM Mono',monospace;font-size:11px;color:var(--gray-500);letter-spacing:.12em;margin-bottom:20px;}
+.breadcrumb a{color:var(--gold);text-decoration:none;}
+.breadcrumb span{margin:0 8px;opacity:.5;}
+.page-hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,6vw,80px);line-height:.95;color:var(--white);margin-bottom:20px;}
+.page-hero h1 .accent{color:var(--gold);}
+.page-hero-desc{color:var(--gray-300);font-size:17px;line-height:1.7;max-width:580px;margin-bottom:32px;}
+.page-hero-meta{display:flex;gap:40px;flex-wrap:wrap;}
+.meta-item{font-family:'DM Mono',monospace;font-size:11px;color:var(--gray-500);letter-spacing:.1em;}
+.meta-item strong{color:var(--gold);display:block;font-size:22px;font-family:'Bebas Neue',sans-serif;margin-bottom:2px;}
+footer{background:#060e1c;padding:48px 0 24px;}
+.footer-inner{max-width:1200px;margin:0 auto;padding:0 24px;}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.06);}
+.footer-brand p{color:var(--gray-500);font-size:13px;line-height:1.7;margin-top:12px;max-width:280px;}
+.footer-col-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
+.footer-links{list-style:none;}
+.footer-links li{margin-bottom:10px;}
+.footer-links a{color:var(--gray-500);font-size:13px;text-decoration:none;transition:color .2s;}
+.footer-links a:hover{color:var(--gold);}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;color:var(--gray-500);font-size:12px;font-family:'DM Mono',monospace;}
+.footer-bottom a{color:var(--gold);text-decoration:none;}
+.form-group{margin-bottom:16px;}
+.form-group label{display:block;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--navy);margin-bottom:6px;}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:12px 16px;border:1.5px solid var(--gray-300);border-radius:6px;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);outline:none;transition:border-color .2s;background:var(--white);}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold);}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.form-submit{width:100%;background:var(--navy);color:var(--gold);border:none;padding:16px;border-radius:6px;font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:.08em;cursor:pointer;transition:all .2s;margin-top:8px;}
+.form-submit:hover{background:var(--gold);color:var(--navy);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(.7);}}
+.fade-up{animation:fadeUp .7s ease forwards;}
+@media(max-width:768px){.nav-links{display:none;}.footer-top{grid-template-columns:1fr 1fr;}.form-row{grid-template-columns:1fr;}}
+</style>
+</head><body>
+<div class="topbar">A Division of <strong><a href="https://flatrateprocessing.com" target="_blank">Flat Rate Processing (FRP)</a></strong> &nbsp;·&nbsp; Est. 2004 · Atlanta, GA &nbsp;·&nbsp; Agent Support: <a href="tel:4049901183">404-990-1183</a></div>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo-wrap">
+      <div class="logo-main"><span>FlatRate</span> ISO</div>
+      <div class="logo-sub">Agent & ISO Partner Program</div>
+    </a>
+    <ul class="nav-links"><li><a href="splits.html" class="active">Splits</a></li><li><a href="verticals.html">Verticals</a></li><li><a href="tools.html">Tools</a></li><li><a href="how-it-works.html">How It Works</a></li><li><a href="government.html">Government</a></li><li><a href="apply.html" class="nav-cta">Apply Now</a></li></ul>
+  </div>
+</nav>
+<div class="page-hero">
+  <div class="hero-grid"></div>
+  <div class="page-hero-inner">
+    <div class="breadcrumb"><a href="index.html">Home</a><span>›</span>Split Schedule</div>
+    <h1>Industry-High<br><span class="accent">Residual Splits</span></h1>
+    <p class="page-hero-desc">Three tiers designed to reward performance and grow with your portfolio — from your very first merchant to managing a team of sub-agents.</p>
+    <div class="page-hero-meta">
+      <div class="meta-item"><strong>70–85%</strong>Agent Split Range</div>
+      <div class="meta-item"><strong>Monthly</strong>Payout Schedule</div>
+      <div class="meta-item"><strong>Lifetime</strong>Residual Ownership</div>
+      <div class="meta-item"><strong>$0</strong>Clawbacks Ever</div>
+    </div>
+  </div>
+</div>
+
+<section style="background:var(--gray-100);">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:56px;">
+      <div class="section-eyebrow">Compensation Structure</div>
+      <h2 class="section-title">Choose Your Tier</h2>
+      <p class="section-sub" style="margin:0 auto;">You can upgrade tiers at any time. Many agents start at Agent level and grow into ISO Partner once they've built a base of 15–20 active merchants.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:48px;">
+
+      <!-- AGENT -->
+      <div class="fade-on-scroll" style="background:var(--white);border-radius:12px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.06);">
+        <div style="background:var(--navy);padding:36px 32px;text-align:center;">
+          <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.15em;color:var(--gray-300);text-transform:uppercase;margin-bottom:16px;">Entry Level</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:96px;color:var(--white);line-height:1;">70<span style="font-size:48px;vertical-align:top;margin-top:16px;display:inline-block;">%</span></div>
+          <div style="color:var(--gold);font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;">Residual Split</div>
+          <div style="color:var(--gray-500);font-size:13px;margin-top:8px;">Independent Agent</div>
+        </div>
+        <div style="padding:32px;">
+          <ul style="list-style:none;">
+            <li style="padding:10px 0;border-bottom:1px solid var(--gray-100);color:var(--text);font-size:14px;display:flex;gap:10px;align-items:center;"><span style="color:var(--gold);font-weight:700;">✓</span>Monthly residual payments</li>
+            <li style="padding:10px 0;border-bottom:1px solid var(--gray-100);color:var(--text);font-size:14px;display:flex;gap:10px;align-items:center;"><span style="color:var(--gold);font-weight:700;">✓</span>FRP training & certification</li>
+            <li style="padding:10px 0;border-bottom:1px solid var(--gray-100);color:var(--text);font-size:14px;display:flex;gap:10px;align-items:center;"><span style="color:var(--gold);font-weight:700;">✓</span>Sales collateral & scripts</li>
+            <li style="padding:10px 0;border-bottom:1px solid var(--gray-100);color:var(--text);font-size:14px;display:flex;gap:10px;align-items:center;"><span style="color:var(--gold);font-weight:700;">✓</span>Statement analyzer tool</li>
+            <li style="padding:10px 0;border-bottom:1px solid var(--gray-100);color:var(--text);font-size:14px;display:flex;gap:10px;align-items:center;"><span style="color:var(--gold);font-weight:700;">✓</span>Access to merchant leads</li>
+            <li style="padding:10px 0;border-bottom:1px solid var(--gray-100);color:var(--text);font-size:14px;display:flex;gap:10px;align-items:center;"><span style="color:var(--gold);font-weight:700;">✓</span>Government Portal access</li>
+            <li style="padding:10px 0;color:var(--gray-300);font-size:14px;display:flex;gap:10px;align-items:center;"><span>—</span>Sub-agent recruiting</li>
+          </ul>
+          <a href="apply.html" style="display:block;text-align:center;margin-top:24px;background:var(--gray-100);color:var(--navy);font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;padding:14px;border-radius:6px;text-decoration:none;transition:all .2s;" onmouseover="this.style.background='var(--navy)';this.style.color='var(--gold)'" onmouseout="this.style.background='var(--gray-100)';this.style.color='var(--navy)'">Apply as Agent →</a>
+        </div>
+      </div>
+
+      <!-- ISO PARTNER -->
+      <div class="fade-on-scroll" style="background:var(--white);border-radius:12px;overflow:hidden;box-shadow:0 8px 40px rgba(212,168,67,.2);border:2px solid var(--gold);transform:scale(1.02);">
+        <div style="background:linear-gradient(160deg,var(--navy-light) 0%,var(--navy) 100%);padding:36px 32px;text-align:center;position:relative;">
+          <div style="position:absolute;top:16px;right:16px;background:var(--gold);color:var(--navy);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;padding:4px 10px;border-radius:2px;font-weight:700;text-transform:uppercase;">Most Popular</div>
+          <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.15em;color:var(--gold);text-transform:uppercase;margin-bottom:16px;">ISO Partner</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:96px;color:var(--white);line-height:1;">80<span style="font-size:48px;vertical-align:top;margin-top:16px;display:inline-block;">%</span></div>
+          <div style="color:var(--gold);font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;">Residual Split</div>
+          <div style="color:var(--gray-300);font-size:13px;margin-top:8px;">Independent Sales Organization</div>
+        </div>
+        <div style="padding:32px;">
+          <ul style="list-style:none;">
+            <li style="padding:10px 0;border-bottom:1px solid var(--gray-100);color:var(--text);font-size:14px;display:flex;gap:10px;align-items:center;"><span style="color:var(--gold);font-weight:700;">✓</span>Everything in Agent tier</li>
+            <li style="padding:10px 0;border-bottom:1px solid var(--gray-100);color:var(--text);font-size:14px;display:flex;gap:10px;align-items:center;"><span style="color:var(--gold);font-weight:700;">✓</span>Sub-agent recruiting rights</li>
+            <li style="padding:10px 0;border-bottom:1px solid var(--gray-100);color:var(--text);font-size:14px;display:flex;gap:10px;align-items:center;"><span style="color:var(--gold);font-weight:700;">✓</span>White-label proposal tools</li>
+            <li style="padding:10px 0;border-bottom:1px solid var(--gray-100);color:var(--text);font-size:14px;display:flex;gap:10px;align-items:center;"><span style="color:var(--gold);font-weight:700;">✓</span>Vertical-specific toolkits</li>
+            <li style="padding:10px 0;border-bottom:1px solid var(--gray-100);color:var(--text);font-size:14px;display:flex;gap:10px;align-items:center;"><span style="color:var(--gold);font-weight:700;">✓</span>Priority underwriting queue</li>
+            <li style="padding:10px 0;border-bottom:1px solid var(--gray-100);color:var(--text);font-size:14px;display:flex;gap:10px;align-items:center;"><span style="color:var(--gold);font-weight:700;">✓</span>Co-branded marketing assets</li>
+            <li style="padding:10px 0;color:var(--text);font-size:14px;display:flex;gap:10px;align-items:center;"><span style="color:var(--gold);font-weight:700;">✓</span>Quarterly business reviews</li>
+          </ul>
+          <a href="apply.html" class="btn-primary" style="display:block;text-align:center;margin-top:24px;">Apply as ISO Partner →</a>
+        </div>
+      </div>
+
+      <!-- MASTER ISO -->
+      <div class="fade-on-scroll" style="background:var(--white);border-radius:12px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.06);">
+        <div style="background:linear-gradient(160deg,#1a2a50 0%,var(--navy) 100%);padding:36px 32px;text-align:center;">
+          <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.15em;color:var(--gold-light);text-transform:uppercase;margin-bottom:16px;">Master ISO</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:96px;color:var(--gold);line-height:1;">85<span style="font-size:48px;vertical-align:top;margin-top:16px;display:inline-block;">%</span></div>
+          <div style="color:var(--gold);font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;">Residual Split</div>
+          <div style="color:var(--gray-300);font-size:13px;margin-top:8px;">Enterprise Partner</div>
+        </div>
+        <div style="padding:32px;">
+          <ul style="list-style:none;">
+            <li style="padding:10px 0;border-bottom:1px solid var(--gray-100);color:var(--text);font-size:14px;display:flex;gap:10px;align-items:center;"><span style="color:var(--gold);font-weight:700;">✓</span>Everything in ISO Partner tier</li>
+            <li style="padding:10px 0;border-bottom:1px solid var(--gray-100);color:var(--text);font-size:14px;display:flex;gap:10px;align-items:center;"><span style="color:var(--gold);font-weight:700;">✓</span>Override on sub-agent residuals</li>
+            <li style="padding:10px 0;border-bottom:1px solid var(--gray-100);color:var(--text);font-size:14px;display:flex;gap:10px;align-items:center;"><span style="color:var(--gold);font-weight:700;">✓</span>Custom pricing authority</li>
+            <li style="padding:10px 0;border-bottom:1px solid var(--gray-100);color:var(--text);font-size:14px;display:flex;gap:10px;align-items:center;"><span style="color:var(--gold);font-weight:700;">✓</span>Direct processor relationships</li>
+            <li style="padding:10px 0;border-bottom:1px solid var(--gray-100);color:var(--text);font-size:14px;display:flex;gap:10px;align-items:center;"><span style="color:var(--gold);font-weight:700;">✓</span>Dedicated account executive</li>
+            <li style="padding:10px 0;border-bottom:1px solid var(--gray-100);color:var(--text);font-size:14px;display:flex;gap:10px;align-items:center;"><span style="color:var(--gold);font-weight:700;">✓</span>Portfolio acquisition support</li>
+            <li style="padding:10px 0;color:var(--text);font-size:14px;display:flex;gap:10px;align-items:center;"><span style="color:var(--gold);font-weight:700;">✓</span>Annual revenue bonuses</li>
+          </ul>
+          <a href="apply.html" style="display:block;text-align:center;margin-top:24px;background:var(--navy);color:var(--gold);font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;padding:14px;border-radius:6px;text-decoration:none;transition:all .2s;" onmouseover="this.style.background='var(--gold)';this.style.color='var(--navy)'" onmouseout="this.style.background='var(--navy)';this.style.color='var(--gold)'">Apply as Master ISO →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Residual Ownership Banner -->
+    <div style="background:var(--navy);border-radius:12px;padding:40px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;">
+      <div>
+        <div class="section-eyebrow">The FlatRate ISO Guarantee</div>
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:40px;color:var(--white);line-height:1;margin-bottom:16px;">Lifetime Residual Ownership</h3>
+        <p style="color:var(--gray-300);font-size:15px;line-height:1.7;">Your book of business is yours — period. If you ever move on, your residuals follow you. No non-competes, no clawbacks, no account reassignments. This is how FRP has operated since 2004.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(212,168,67,.15);border-radius:8px;padding:20px;text-align:center;">
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--gold);">$0</div>
+          <div style="color:var(--gray-500);font-size:12px;font-family:'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase;">Clawbacks</div>
+        </div>
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(212,168,67,.15);border-radius:8px;padding:20px;text-align:center;">
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--gold);">$0</div>
+          <div style="color:var(--gray-500);font-size:12px;font-family:'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase;">Upfront Fees</div>
+        </div>
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(212,168,67,.15);border-radius:8px;padding:20px;text-align:center;">
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--gold);">100%</div>
+          <div style="color:var(--gray-500);font-size:12px;font-family:'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase;">Transparent Reports</div>
+        </div>
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(212,168,67,.15);border-radius:8px;padding:20px;text-align:center;">
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--gold);">30</div>
+          <div style="color:var(--gray-500);font-size:12px;font-family:'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase;">Day Net Payout</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INCOME CALCULATOR -->
+<section>
+  <div class="container">
+    <div style="text-align:center;margin-bottom:56px;">
+      <div class="section-eyebrow">Residual Calculator</div>
+      <h2 class="section-title">Estimate Your Monthly Income</h2>
+      <p class="section-sub" style="margin:0 auto;">Adjust the sliders to see what your residual income could look like across each vertical.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;">
+      <div style="background:var(--gray-100);border-radius:12px;padding:40px;">
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--navy);margin-bottom:28px;">Your Portfolio</h3>
+        <div style="margin-bottom:28px;">
+          <label style="font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--navy);display:block;margin-bottom:8px;">Restaurant Accounts: <span id="restCount" style="color:var(--gold);">10</span></label>
+          <input type="range" min="0" max="50" value="10" id="restSlider" style="width:100%;accent-color:var(--gold);" oninput="calcResidual()">
+        </div>
+        <div style="margin-bottom:28px;">
+          <label style="font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--navy);display:block;margin-bottom:8px;">Auto Repair Shops: <span id="autoCount" style="color:var(--gold);">8</span></label>
+          <input type="range" min="0" max="50" value="8" id="autoSlider" style="width:100%;accent-color:var(--gold);" oninput="calcResidual()">
+        </div>
+        <div style="margin-bottom:28px;">
+          <label style="font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--navy);display:block;margin-bottom:8px;">Government Contracts: <span id="govCount" style="color:var(--gold);">3</span></label>
+          <input type="range" min="0" max="20" value="3" id="govSlider" style="width:100%;accent-color:var(--gold);" oninput="calcResidual()">
+        </div>
+        <div>
+          <label style="font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--navy);display:block;margin-bottom:8px;">Your Tier</label>
+          <select id="tierSelect" style="width:100%;padding:12px;border:1.5px solid var(--gray-300);border-radius:6px;font-family:'DM Sans',sans-serif;font-size:14px;" onchange="calcResidual()">
+            <option value="0.70">Agent — 70%</option>
+            <option value="0.80" selected>ISO Partner — 80%</option>
+            <option value="0.85">Master ISO — 85%</option>
+          </select>
+        </div>
+      </div>
+      <div style="background:var(--navy);border-radius:12px;padding:40px;position:sticky;top:90px;">
+        <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:.2em;text-transform:uppercase;margin-bottom:24px;">// Projected Monthly Residual</div>
+        <div id="restLine" style="display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06);">
+          <span style="color:var(--gray-300);font-size:13px;">🍽️ Restaurant income</span>
+          <span style="font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--gold);">$2,400</span>
+        </div>
+        <div id="autoLine" style="display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06);">
+          <span style="color:var(--gray-300);font-size:13px;">🔧 Auto repair income</span>
+          <span style="font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--gold);">$1,920</span>
+        </div>
+        <div id="govLine" style="display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06);">
+          <span style="color:var(--gray-300);font-size:13px;">🏛️ Government income</span>
+          <span style="font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--gold);">$2,520</span>
+        </div>
+        <div style="margin-top:24px;padding:24px;background:rgba(212,168,67,.08);border:1px solid rgba(212,168,67,.2);border-radius:8px;display:flex;justify-content:space-between;align-items:center;">
+          <span style="color:var(--white);font-weight:600;">Monthly Total</span>
+          <span id="totalLine" style="font-family:'Bebas Neue',sans-serif;font-size:52px;color:var(--gold);">$6,840</span>
+        </div>
+        <div style="margin-top:16px;display:flex;justify-content:space-between;padding:12px;background:rgba(255,255,255,.03);border-radius:6px;">
+          <span style="color:var(--gray-500);font-size:12px;">Annual projection</span>
+          <span id="annualLine" style="color:var(--gold-light);font-weight:700;font-size:14px;">$82,080/yr</span>
+        </div>
+        <a href="apply.html" class="btn-primary" style="display:block;text-align:center;margin-top:24px;">Start Earning This →</a>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+function fmt(n){return '$'+n.toLocaleString();}
+function calcResidual(){
+  const r=parseInt(document.getElementById('restSlider').value);
+  const a=parseInt(document.getElementById('autoSlider').value);
+  const g=parseInt(document.getElementById('govSlider').value);
+  const tier=parseFloat(document.getElementById('tierSelect').value);
+  document.getElementById('restCount').textContent=r;
+  document.getElementById('autoCount').textContent=a;
+  document.getElementById('govCount').textContent=g;
+  // avg volumes * ~0.3% net residual basis * split
+  const rb=r*100000*0.003*tier;
+  const ab=a*80000*0.003*tier;
+  const gb=g*175000*0.003*tier;
+  const total=rb+ab+gb;
+  document.querySelector('#restLine span:last-child').textContent=fmt(Math.round(rb));
+  document.querySelector('#autoLine span:last-child').textContent=fmt(Math.round(ab));
+  document.querySelector('#govLine span:last-child').textContent=fmt(Math.round(gb));
+  document.getElementById('totalLine').textContent=fmt(Math.round(total));
+  document.getElementById('annualLine').textContent=fmt(Math.round(total*12))+'/yr';
+}
+</script>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:24px;color:white;"><span style="color:var(--gold)">FlatRate</span> ISO</div>
+        <p>FlatRate ISO is the agent and ISO partner program of Flat Rate Processing — transparent payment solutions since 2004, based in Atlanta, GA.</p>
+        <div style="margin-top:16px;"><a href="https://flatrateprocessing.com" style="color:var(--gold);font-size:12px;text-decoration:none;" target="_blank">↗ Visit FlatRateProcessing.com</a></div>
+      </div>
+      <div>
+        <div class="footer-col-title">Program</div>
+        <ul class="footer-links">
+          <li><a href="splits.html">Split Schedule</a></li>
+          <li><a href="verticals.html">Target Verticals</a></li>
+          <li><a href="tools.html">Agent Tools</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="apply.html">Apply Now</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Verticals</div>
+        <ul class="footer-links">
+          <li><a href="government.html">Government</a></li>
+          <li><a href="verticals.html#auto">Auto Repair</a></li>
+          <li><a href="verticals.html#restaurant">Restaurants</a></li>
+          <li><a href="https://governmentportal.com" target="_blank">Government Portal ↗</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="tel:4049901183">404-990-1183</a></li>
+          <li><a href="mailto:iso@flatrateiso.com">iso@flatrateiso.com</a></li>
+          <li><a href="#">Atlanta, GA</a></li>
+          <li><a href="https://flatrateprocessing.com" target="_blank">FlatRateProcessing.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 FlatRate ISO · A Division of Flat Rate Processing · FlatRateISO.com</span>
+      <span><a href="https://flatrateprocessing.com" target="_blank">FlatRateProcessing.com</a></span>
+    </div>
+  </div>
+</footer>
+<script>
+document.querySelectorAll('.fade-on-scroll').forEach(el=>{
+  el.style.opacity='0';el.style.transform='translateY(24px)';el.style.transition='opacity .6s ease,transform .6s ease';
+  new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}});},{threshold:.1}).observe(el);
+});
+document.querySelectorAll('.form-submit').forEach(btn=>{
+  btn.addEventListener('click',function(){{this.textContent='✓ Submitted!';this.style.background='#22c55e';this.style.color='white';setTimeout(()=>{this.textContent='Submit Application →';this.style.background='';this.style.color='';},3000);}});
+});
+</script>
+</body></html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Target Verticals | FlatRate ISO – A Division of Flat Rate Processing</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0a1628;--navy-mid:#112240;--navy-light:#1a3560;
+  --gold:#d4a843;--gold-light:#f0c96a;--gold-pale:#fdf3dc;
+  --white:#ffffff;--gray-100:#f4f6fa;--gray-300:#c8d0df;
+  --gray-500:#7a8799;--green:#22c55e;--text:#1a2540;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden;}
+::-webkit-scrollbar{width:6px;}::-webkit-scrollbar-track{background:var(--navy);}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px;}
+.topbar{background:var(--navy);color:var(--gray-300);font-size:12px;font-family:'DM Mono',monospace;padding:8px 0;text-align:center;letter-spacing:.04em;}
+.topbar a{color:var(--gold);text-decoration:none;}
+nav{background:var(--navy-mid);position:sticky;top:0;z-index:100;border-bottom:2px solid var(--gold);box-shadow:0 4px 24px rgba(0,0,0,.3);}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:68px;}
+.logo-wrap{display:flex;flex-direction:column;line-height:1;text-decoration:none;}
+.logo-main{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--white);letter-spacing:.05em;}
+.logo-main span{color:var(--gold);}
+.logo-sub{font-size:9px;color:var(--gray-300);letter-spacing:.18em;font-family:'DM Mono',monospace;text-transform:uppercase;margin-top:2px;}
+.nav-links{display:flex;gap:28px;list-style:none;align-items:center;}
+.nav-links a{color:var(--gray-300);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;transition:color .2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--gold);}
+.nav-cta{background:var(--gold)!important;color:var(--navy)!important;padding:10px 22px;border-radius:4px;font-weight:700!important;}
+.nav-cta:hover{background:var(--gold-light)!important;}
+.btn-primary{background:var(--gold);color:var(--navy);font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;padding:16px 32px;border-radius:4px;text-decoration:none;transition:all .2s;display:inline-block;}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(212,168,67,.3);}
+.btn-outline{border:1.5px solid rgba(255,255,255,.25);color:var(--white);font-size:14px;letter-spacing:.06em;text-transform:uppercase;padding:16px 32px;border-radius:4px;text-decoration:none;transition:all .2s;display:inline-block;font-weight:600;}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);}
+section{padding:96px 0;}
+.container{max-width:1200px;margin:0 auto;padding:0 24px;}
+.section-eyebrow{font-family:'DM Mono',monospace;font-size:11px;color:var(--gold);letter-spacing:.2em;text-transform:uppercase;margin-bottom:12px;}
+.section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(38px,4vw,56px);line-height:1;color:var(--navy);margin-bottom:16px;}
+.section-title.light{color:var(--white);}
+.section-sub{color:var(--gray-500);font-size:16px;line-height:1.7;max-width:600px;}
+.section-sub.light{color:var(--gray-300);}
+.page-hero{background:var(--navy);padding:80px 0 72px;position:relative;overflow:hidden;}
+.page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 80% at 90% 50%,rgba(212,168,67,.07) 0%,transparent 70%);}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(212,168,67,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(212,168,67,.03) 1px,transparent 1px);background-size:60px 60px;}
+.page-hero-inner{max-width:1200px;margin:0 auto;padding:0 24px;position:relative;z-index:2;}
+.breadcrumb{font-family:'DM Mono',monospace;font-size:11px;color:var(--gray-500);letter-spacing:.12em;margin-bottom:20px;}
+.breadcrumb a{color:var(--gold);text-decoration:none;}
+.breadcrumb span{margin:0 8px;opacity:.5;}
+.page-hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,6vw,80px);line-height:.95;color:var(--white);margin-bottom:20px;}
+.page-hero h1 .accent{color:var(--gold);}
+.page-hero-desc{color:var(--gray-300);font-size:17px;line-height:1.7;max-width:580px;margin-bottom:32px;}
+.page-hero-meta{display:flex;gap:40px;flex-wrap:wrap;}
+.meta-item{font-family:'DM Mono',monospace;font-size:11px;color:var(--gray-500);letter-spacing:.1em;}
+.meta-item strong{color:var(--gold);display:block;font-size:22px;font-family:'Bebas Neue',sans-serif;margin-bottom:2px;}
+footer{background:#060e1c;padding:48px 0 24px;}
+.footer-inner{max-width:1200px;margin:0 auto;padding:0 24px;}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.06);}
+.footer-brand p{color:var(--gray-500);font-size:13px;line-height:1.7;margin-top:12px;max-width:280px;}
+.footer-col-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
+.footer-links{list-style:none;}
+.footer-links li{margin-bottom:10px;}
+.footer-links a{color:var(--gray-500);font-size:13px;text-decoration:none;transition:color .2s;}
+.footer-links a:hover{color:var(--gold);}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;color:var(--gray-500);font-size:12px;font-family:'DM Mono',monospace;}
+.footer-bottom a{color:var(--gold);text-decoration:none;}
+.form-group{margin-bottom:16px;}
+.form-group label{display:block;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--navy);margin-bottom:6px;}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:12px 16px;border:1.5px solid var(--gray-300);border-radius:6px;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);outline:none;transition:border-color .2s;background:var(--white);}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold);}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.form-submit{width:100%;background:var(--navy);color:var(--gold);border:none;padding:16px;border-radius:6px;font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:.08em;cursor:pointer;transition:all .2s;margin-top:8px;}
+.form-submit:hover{background:var(--gold);color:var(--navy);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(.7);}}
+.fade-up{animation:fadeUp .7s ease forwards;}
+@media(max-width:768px){.nav-links{display:none;}.footer-top{grid-template-columns:1fr 1fr;}.form-row{grid-template-columns:1fr;}}
+</style>
+</head><body>
+<div class="topbar">A Division of <strong><a href="https://flatrateprocessing.com" target="_blank">Flat Rate Processing (FRP)</a></strong> &nbsp;·&nbsp; Est. 2004 · Atlanta, GA &nbsp;·&nbsp; Agent Support: <a href="tel:4049901183">404-990-1183</a></div>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo-wrap">
+      <div class="logo-main"><span>FlatRate</span> ISO</div>
+      <div class="logo-sub">Agent & ISO Partner Program</div>
+    </a>
+    <ul class="nav-links"><li><a href="splits.html">Splits</a></li><li><a href="verticals.html" class="active">Verticals</a></li><li><a href="tools.html">Tools</a></li><li><a href="how-it-works.html">How It Works</a></li><li><a href="government.html">Government</a></li><li><a href="apply.html" class="nav-cta">Apply Now</a></li></ul>
+  </div>
+</nav>
+<div class="page-hero">
+  <div class="hero-grid"></div>
+  <div class="page-hero-inner">
+    <div class="breadcrumb"><a href="index.html">Home</a><span>›</span>Target Verticals</div>
+    <h1>Three Verticals.<br><span class="accent">Massive Opportunity.</span></h1>
+    <p class="page-hero-desc">We've built purpose-designed sales programs, pricing tools, and merchant playbooks for the three most underserved — and highest-residual — verticals in merchant services.</p>
+    <div class="page-hero-meta">
+      <div class="meta-item"><strong>Gov</strong>Municipalities</div>
+      <div class="meta-item"><strong>Auto</strong>Repair Shops</div>
+      <div class="meta-item"><strong>Food</strong>Restaurants</div>
+    </div>
+  </div>
+</div>
+
+<!-- GOVERNMENT -->
+<section id="government" style="background:var(--white);">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;margin-bottom:96px;">
+      <div>
+        <div style="display:inline-flex;align-items:center;gap:8px;background:#eff6ff;color:#1d4ed8;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.14em;padding:6px 14px;border-radius:2px;margin-bottom:20px;text-transform:uppercase;border:1px solid #bfdbfe;">🏛️ Government Vertical</div>
+        <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(38px,4vw,60px);line-height:1;color:var(--navy);margin-bottom:16px;">Municipal &amp;<br>Government Payments</h2>
+        <p style="color:var(--gray-500);font-size:15px;line-height:1.8;margin-bottom:28px;">FRP's sister company, Government Portal, already serves hundreds of municipalities across the Southeast. As a FlatRate ISO agent, you walk in with an established brand, proven technology, and a warm door-opener no independent agent can replicate.</p>
+        <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:32px;">
+          <div style="display:flex;gap:16px;"><div style="width:8px;height:8px;background:var(--gold);border-radius:50%;margin-top:6px;flex-shrink:0;"></div><div><strong style="font-size:14px;">Long Contracts, Zero Attrition</strong><br><span style="color:var(--gray-500);font-size:13px;">Government contracts run 3–5 years. Once you win a municipality, you keep it.</span></div></div>
+          <div style="display:flex;gap:16px;"><div style="width:8px;height:8px;background:var(--gold);border-radius:50%;margin-top:6px;flex-shrink:0;"></div><div><strong style="font-size:14px;">Massive Transaction Volume</strong><br><span style="color:var(--gray-500);font-size:13px;">Utility payments, permit fees, tax payments — government entities process millions per month.</span></div></div>
+          <div style="display:flex;gap:16px;"><div style="width:8px;height:8px;background:var(--gold);border-radius:50%;margin-top:6px;flex-shrink:0;"></div><div><strong style="font-size:14px;">Compliance-Ready Technology</strong><br><span style="color:var(--gray-500);font-size:13px;">Government Portal's platform is purpose-built for government compliance, procurement, and reporting requirements.</span></div></div>
+        </div>
+        <div style="display:flex;gap:12px;">
+          <a href="government.html" class="btn-primary">Full Gov Portal Page →</a>
+          <a href="apply.html" class="btn-outline" style="border-color:var(--navy);color:var(--navy);">Apply Now</a>
+        </div>
+      </div>
+      <div style="background:var(--navy);border-radius:16px;padding:40px;">
+        <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:.2em;text-transform:uppercase;margin-bottom:28px;">// Government Vertical Stats</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:20px;text-align:center;">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--gold);">$180K+</div>
+            <div style="color:var(--gray-500);font-size:11px;font-family:'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase;">Avg Monthly Volume</div>
+          </div>
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:20px;text-align:center;">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--gold);">3–5yr</div>
+            <div style="color:var(--gray-500);font-size:11px;font-family:'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase;">Contract Length</div>
+          </div>
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:20px;text-align:center;">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--gold);">~0%</div>
+            <div style="color:var(--gray-500);font-size:11px;font-family:'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase;">Annual Attrition</div>
+          </div>
+          <div style="background:rgba(212,168,67,.08);border:1px solid rgba(212,168,67,.2);border-radius:8px;padding:20px;text-align:center;">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--gold);">⭐⭐⭐</div>
+            <div style="color:var(--gray-500);font-size:11px;font-family:'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase;">Residual Stability</div>
+          </div>
+        </div>
+        <div style="margin-top:16px;background:rgba(255,255,255,.03);border-radius:8px;padding:16px;">
+          <div style="color:var(--gray-300);font-size:13px;line-height:1.6;">Tools included: <span style="color:var(--gold);">Government Portal Integration · Compliance-Ready Docs · RFP Proposal Templates · Surcharge/Convenience Fee · ACH + Card Acceptance</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AUTO -->
+    <div id="auto" style="display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;margin-bottom:96px;">
+      <div style="background:#1a1008;border-radius:16px;padding:40px;order:1;">
+        <div style="font-family:'DM Mono',monospace;font-size:10px;color:#d97706;letter-spacing:.2em;text-transform:uppercase;margin-bottom:28px;">// Auto Repair Vertical Stats</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,191,0,.1);border-radius:8px;padding:20px;text-align:center;">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:32px;color:#d97706;">$420–$850</div>
+            <div style="color:var(--gray-500);font-size:11px;font-family:'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase;">Avg Ticket Size</div>
+          </div>
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,191,0,.1);border-radius:8px;padding:20px;text-align:center;">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:32px;color:#d97706;">$65–120K</div>
+            <div style="color:var(--gray-500);font-size:11px;font-family:'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase;">Monthly Volume</div>
+          </div>
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,191,0,.1);border-radius:8px;padding:20px;text-align:center;">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:32px;color:#d97706;">1 in 4</div>
+            <div style="color:var(--gray-500);font-size:11px;font-family:'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase;">Close Rate (Trained)</div>
+          </div>
+          <div style="background:rgba(217,119,6,.1);border:1px solid rgba(217,119,6,.2);border-radius:8px;padding:20px;text-align:center;">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:32px;color:#d97706;">Easy</div>
+            <div style="color:var(--gray-500);font-size:11px;font-family:'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase;">Decision Maker Access</div>
+          </div>
+        </div>
+        <div style="margin-top:16px;background:rgba(255,255,255,.03);border-radius:8px;padding:16px;">
+          <div style="color:#b45309;font-size:13px;line-height:1.6;">Tools: Shop Management Integrations · Text-to-Pay Links · Parts Financing · Fleet Card Processing · Estimate-to-Payment Flow</div>
+        </div>
+      </div>
+      <div style="order:2;">
+        <div style="display:inline-flex;align-items:center;gap:8px;background:#fffbeb;color:#92400e;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.14em;padding:6px 14px;border-radius:2px;margin-bottom:20px;text-transform:uppercase;border:1px solid #fde68a;">🔧 Auto Repair Vertical</div>
+        <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(38px,4vw,60px);line-height:1;color:var(--navy);margin-bottom:16px;">Auto Repair &amp;<br>Mechanic Shops</h2>
+        <p style="color:var(--gray-500);font-size:15px;line-height:1.8;margin-bottom:28px;">Auto repair shops are one of the easiest and most profitable closes in merchant services. High average tickets, owner-operated decision making, and most shops are still using legacy processors with inflated rates.</p>
+        <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:32px;">
+          <div style="display:flex;gap:16px;"><div style="width:8px;height:8px;background:#d97706;border-radius:50%;margin-top:6px;flex-shrink:0;"></div><div><strong style="font-size:14px;">High Ticket, High Residuals</strong><br><span style="color:var(--gray-500);font-size:13px;">Average repair orders of $420–$850 mean meaningful residual dollars per account.</span></div></div>
+          <div style="display:flex;gap:16px;"><div style="width:8px;height:8px;background:#d97706;border-radius:50%;margin-top:6px;flex-shrink:0;"></div><div><strong style="font-size:14px;">Walk-In Close Opportunity</strong><br><span style="color:var(--gray-500);font-size:13px;">The owner is usually on the floor. Statement analysis closes the deal in under 20 minutes.</span></div></div>
+          <div style="display:flex;gap:16px;"><div style="width:8px;height:8px;background:#d97706;border-radius:50%;margin-top:6px;flex-shrink:0;"></div><div><strong style="font-size:14px;">Text-to-Pay is a Game Changer</strong><br><span style="color:var(--gray-500);font-size:13px;">Our text-to-pay tool is a massive upsell — shops love collecting payment before the customer even picks up their car.</span></div></div>
+        </div>
+        <a href="apply.html" class="btn-primary">Target This Vertical →</a>
+      </div>
+    </div>
+
+    <!-- RESTAURANT -->
+    <div id="restaurant" style="display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;">
+      <div>
+        <div style="display:inline-flex;align-items:center;gap:8px;background:#fff1f2;color:#991b1b;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.14em;padding:6px 14px;border-radius:2px;margin-bottom:20px;text-transform:uppercase;border:1px solid #fecdd3;">🍽️ Restaurant Vertical</div>
+        <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(38px,4vw,60px);line-height:1;color:var(--navy);margin-bottom:16px;">Restaurants &amp;<br>Food Service</h2>
+        <p style="color:var(--gray-500);font-size:15px;line-height:1.8;margin-bottom:28px;">The restaurant vertical is enormous — and most owners are quietly overpaying their processor by 1% or more. Our free statement analysis tool does the talking. High volume equals high residuals for the life of the account.</p>
+        <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:32px;">
+          <div style="display:flex;gap:16px;"><div style="width:8px;height:8px;background:#dc2626;border-radius:50%;margin-top:6px;flex-shrink:0;"></div><div><strong style="font-size:14px;">Largest Volume Category</strong><br><span style="color:var(--gray-500);font-size:13px;">Full-service restaurants averaging $80–200K/month mean significant residual income per account.</span></div></div>
+          <div style="display:flex;gap:16px;"><div style="width:8px;height:8px;background:#dc2626;border-radius:50%;margin-top:6px;flex-shrink:0;"></div><div><strong style="font-size:14px;">Cash Discount / Dual Pricing</strong><br><span style="color:var(--gray-500);font-size:13px;">Many restaurants qualify for dual pricing programs that eliminate processing costs entirely — a powerful sales hook.</span></div></div>
+          <div style="display:flex;gap:16px;"><div style="width:8px;height:8px;background:#dc2626;border-radius:50%;margin-top:6px;flex-shrink:0;"></div><div><strong style="font-size:14px;">POS Integration Specialists</strong><br><span style="color:var(--gray-500);font-size:13px;">FRP integrates with 90%+ of POS systems, including Toast, Clover, and Aloha. You never have to ask them to change their system.</span></div></div>
+        </div>
+        <a href="apply.html" class="btn-primary">Target This Vertical →</a>
+      </div>
+      <div style="background:#1a0a0a;border-radius:16px;padding:40px;">
+        <div style="font-family:'DM Mono',monospace;font-size:10px;color:#dc2626;letter-spacing:.2em;text-transform:uppercase;margin-bottom:28px;">// Restaurant Vertical Stats</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(220,38,38,.1);border-radius:8px;padding:20px;text-align:center;">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:#dc2626;">$55–200K</div>
+            <div style="color:var(--gray-500);font-size:11px;font-family:'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase;">Monthly Volume</div>
+          </div>
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(220,38,38,.1);border-radius:8px;padding:20px;text-align:center;">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:#dc2626;">0.8–1.4%</div>
+            <div style="color:var(--gray-500);font-size:11px;font-family:'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase;">Typical Savings Found</div>
+          </div>
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(220,38,38,.1);border-radius:8px;padding:20px;text-align:center;">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:#dc2626;">High</div>
+            <div style="color:var(--gray-500);font-size:11px;font-family:'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase;">Owner Accessibility</div>
+          </div>
+          <div style="background:rgba(220,38,38,.08);border:1px solid rgba(220,38,38,.2);border-radius:8px;padding:20px;text-align:center;">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:#dc2626;">90%+</div>
+            <div style="color:var(--gray-500);font-size:11px;font-family:'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase;">POS Compatibility</div>
+          </div>
+        </div>
+        <div style="margin-top:16px;background:rgba(255,255,255,.03);border-radius:8px;padding:16px;">
+          <div style="color:#b91c1c;font-size:13px;line-height:1.6;">Tools: POS Integrations · Tip Adjustment · Dual Pricing / Cash Discount · Online Ordering Payments · Free Statement Analysis</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--navy);">
+  <div class="container" style="text-align:center;">
+    <div class="section-eyebrow">Ready to Pick Your Vertical?</div>
+    <h2 class="section-title light" style="margin-bottom:16px;">Start Closing Accounts<br>in <span style="color:var(--gold);">Your Market</span></h2>
+    <p class="section-sub light" style="margin:0 auto 36px;">Each vertical comes with a complete playbook, proposal templates, and dedicated onboarding support from our Atlanta team.</p>
+    <a href="apply.html" class="btn-primary" style="font-size:16px;padding:18px 40px;">Apply to Partner Today →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:24px;color:white;"><span style="color:var(--gold)">FlatRate</span> ISO</div>
+        <p>FlatRate ISO is the agent and ISO partner program of Flat Rate Processing — transparent payment solutions since 2004, based in Atlanta, GA.</p>
+        <div style="margin-top:16px;"><a href="https://flatrateprocessing.com" style="color:var(--gold);font-size:12px;text-decoration:none;" target="_blank">↗ Visit FlatRateProcessing.com</a></div>
+      </div>
+      <div>
+        <div class="footer-col-title">Program</div>
+        <ul class="footer-links">
+          <li><a href="splits.html">Split Schedule</a></li>
+          <li><a href="verticals.html">Target Verticals</a></li>
+          <li><a href="tools.html">Agent Tools</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="apply.html">Apply Now</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Verticals</div>
+        <ul class="footer-links">
+          <li><a href="government.html">Government</a></li>
+          <li><a href="verticals.html#auto">Auto Repair</a></li>
+          <li><a href="verticals.html#restaurant">Restaurants</a></li>
+          <li><a href="https://governmentportal.com" target="_blank">Government Portal ↗</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="tel:4049901183">404-990-1183</a></li>
+          <li><a href="mailto:iso@flatrateiso.com">iso@flatrateiso.com</a></li>
+          <li><a href="#">Atlanta, GA</a></li>
+          <li><a href="https://flatrateprocessing.com" target="_blank">FlatRateProcessing.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 FlatRate ISO · A Division of Flat Rate Processing · FlatRateISO.com</span>
+      <span><a href="https://flatrateprocessing.com" target="_blank">FlatRateProcessing.com</a></span>
+    </div>
+  </div>
+</footer>
+<script>
+document.querySelectorAll('.fade-on-scroll').forEach(el=>{
+  el.style.opacity='0';el.style.transform='translateY(24px)';el.style.transition='opacity .6s ease,transform .6s ease';
+  new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}});},{threshold:.1}).observe(el);
+});
+document.querySelectorAll('.form-submit').forEach(btn=>{
+  btn.addEventListener('click',function(){{this.textContent='✓ Submitted!';this.style.background='#22c55e';this.style.color='white';setTimeout(()=>{this.textContent='Submit Application →';this.style.background='';this.style.color='';},3000);}});
+});
+</script>
+</body></html>
