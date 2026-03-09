@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FlatRate ISO | Agent & ISO Partner Program | A Division of Flat Rate Processing</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <style>
   :root {
     --navy: #0a1628;
@@ -1369,6 +1370,7 @@
             <option>Over $10M/mo</option>
           </select>
         </div>
+        <div style="margin-bottom:12px;"><div class="cf-turnstile" data-sitekey="0x4AAAAAACoZGFA1Pu48sjl-"></div></div>
         <button type="submit" class="form-submit">Submit Application →</button>
         <div id="home-form-status" class="form-disclaimer">By submitting, you agree to be contacted by a FlatRate ISO partner specialist. No spam, ever.</div>
         </form>
@@ -1459,6 +1461,11 @@
     formData.append('budget', raw.get('budget') || '');
     formData.append('timeline', raw.get('timeline') || '');
     formData.append('message', 'Partner application submitted from homepage');
+
+    var turnstileResponse = form.querySelector('[name="cf-turnstile-response"]');
+    if (turnstileResponse && turnstileResponse.value) {
+      formData.append('cf-turnstile-response', turnstileResponse.value);
+    }
 
     btn.textContent = 'Sending...';
     btn.disabled = true;

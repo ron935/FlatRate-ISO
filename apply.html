@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Apply to Partner | FlatRate ISO – A Division of Flat Rate Processing</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <style>
 :root{
   --navy:#0a1628;--navy-mid:#112240;--navy-light:#1a3560;
@@ -154,6 +155,7 @@ footer{background:#060e1c;padding:48px 0 24px;}
           <label>Tell Us About Yourself (optional)</label>
           <textarea rows="3" name="about" placeholder="Sales background, goals, questions, etc."></textarea>
         </div>
+        <div style="margin-bottom:12px;"><div class="cf-turnstile" data-sitekey="0x4AAAAAACoZGFA1Pu48sjl-"></div></div>
         <button type="submit" class="form-submit">Submit Application →</button>
         <p id="form-status" style="font-size:11px;color:var(--gray-500);text-align:center;margin-top:12px;">No spam. No commitment. A real person will call you back.</p>
         </form>
@@ -275,6 +277,11 @@ document.getElementById('apply-form').addEventListener('submit', function(e) {
   if (raw.get('city_state')) msg += 'Location: ' + raw.get('city_state') + '\n\n';
   if (raw.get('about')) msg += raw.get('about');
   formData.append('message', msg.trim() || 'Partner application submitted');
+
+  var turnstileResponse = document.querySelector('[name="cf-turnstile-response"]');
+  if (turnstileResponse && turnstileResponse.value) {
+    formData.append('cf-turnstile-response', turnstileResponse.value);
+  }
 
   btn.textContent = 'Sending...';
   btn.disabled = true;
