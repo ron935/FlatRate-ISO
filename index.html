@@ -1414,7 +1414,7 @@
         <ul class="footer-links">
           <li><a href="tel:4049901183">404-990-1183</a></li>
           <li><a href="/cdn-cgi/l/email-protection#86eff5e9c6e0eae7f2f4e7f2e3eff5e9a8e5e9eb"><span class="__cf_email__" data-cfemail="9ef7edf1def8f2ffeaecffeafbf7edf1b0fdf1f3">[email&#160;protected]</span></a></li>
-          <li><a href="#">Atlanta, GA</a></li>
+          <li><a href="https://maps.google.com/?q=Atlanta,+GA" target="_blank" rel="noopener">Atlanta, GA</a></li>
           <li><a href="https://flatrateprocessing.com" target="_blank">FlatRateProcessing.com</a></li>
         </ul>
       </div>
@@ -1466,6 +1466,16 @@
     if (turnstileResponse && turnstileResponse.value) {
       formData.append('cf-turnstile-response', turnstileResponse.value);
     }
+
+    // Attach UTM params and referrer for lead source attribution
+    try {
+      var sp = new URLSearchParams(location.search);
+      if (sp.get('utm_source')) formData.append('utm_source', sp.get('utm_source'));
+      if (sp.get('utm_medium')) formData.append('utm_medium', sp.get('utm_medium'));
+      if (sp.get('utm_campaign')) formData.append('utm_campaign', sp.get('utm_campaign'));
+    } catch(e) {}
+    if (document.referrer) formData.append('referrer', document.referrer);
+    formData.append('source', location.href);
 
     btn.textContent = 'Sending...';
     btn.disabled = true;

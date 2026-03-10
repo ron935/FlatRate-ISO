@@ -238,7 +238,7 @@ footer{background:#060e1c;padding:48px 0 24px;}
         <ul class="footer-links">
           <li><a href="tel:4049901183">404-990-1183</a></li>
           <li><a href="mailto:iso@flatrateiso.com">iso@flatrateiso.com</a></li>
-          <li><a href="#">Atlanta, GA</a></li>
+          <li><a href="https://maps.google.com/?q=Atlanta,+GA" target="_blank" rel="noopener">Atlanta, GA</a></li>
           <li><a href="https://flatrateprocessing.com" target="_blank">FlatRateProcessing.com</a></li>
         </ul>
       </div>
@@ -282,6 +282,16 @@ document.getElementById('apply-form').addEventListener('submit', function(e) {
   if (turnstileResponse && turnstileResponse.value) {
     formData.append('cf-turnstile-response', turnstileResponse.value);
   }
+
+  // Attach UTM params and referrer for lead source attribution
+  try {
+    var sp = new URLSearchParams(location.search);
+    if (sp.get('utm_source')) formData.append('utm_source', sp.get('utm_source'));
+    if (sp.get('utm_medium')) formData.append('utm_medium', sp.get('utm_medium'));
+    if (sp.get('utm_campaign')) formData.append('utm_campaign', sp.get('utm_campaign'));
+  } catch(e) {}
+  if (document.referrer) formData.append('referrer', document.referrer);
+  formData.append('source', location.href);
 
   btn.textContent = 'Sending...';
   btn.disabled = true;
