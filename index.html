@@ -824,12 +824,39 @@
   ::-webkit-scrollbar-track { background: var(--navy); }
   ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
 
+  /* ─── MOBILE NAV ─── */
+  .nav-toggle { display: none; flex-direction: column; justify-content: center; align-items: center; gap: 5px; width: 36px; height: 36px; background: none; border: none; cursor: pointer; padding: 4px; z-index: 1001; }
+  .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--gray-300); border-radius: 2px; transition: all 0.3s ease; }
+  .nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  .nav-toggle.active span:nth-child(2) { opacity: 0; }
+  .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
   @media (max-width: 768px) {
+    .nav-toggle { display: flex; }
+    .nav-links {
+      display: flex !important;
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 280px;
+      height: 100vh;
+      background: var(--navy-mid);
+      padding: 80px 32px 32px;
+      gap: 0;
+      z-index: 1000;
+      transition: right 0.3s ease;
+      box-shadow: -4px 0 24px rgba(0,0,0,0.4);
+    }
+    .nav-links.active { right: 0; }
+    .nav-links li { border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .nav-links a { display: block; padding: 16px 0; font-size: 15px; }
+    .nav-links .nav-cta { text-align: center; margin-top: 16px; }
+    body.menu-open { overflow: hidden; }
     .hero-inner, .why-layout, .cta-inner { grid-template-columns: 1fr; }
     .splits-grid, .verticals-grid, .testimonials-grid, .tools-grid { grid-template-columns: 1fr; }
     .steps-track { grid-template-columns: 1fr 1fr; }
     .footer-top { grid-template-columns: 1fr 1fr; }
-    .nav-links { display: none; }
     .stat-card.highlight { grid-column: span 1; flex-direction: column; }
     .hero-stats { grid-template-columns: 1fr 1fr; }
     .steps-track::before { display: none; }
@@ -846,17 +873,19 @@
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <div class="logo-wrap">
+    <a href="index.html" style="text-decoration:none;"><div class="logo-wrap">
       <div class="logo-main"><span>FlatRate</span> ISO</div>
       <div class="logo-sub">Agent & ISO Partner Program</div>
-    </div>
+    </div></a>
     <ul class="nav-links">
       <li><a href="splits.html">Splits</a></li>
       <li><a href="verticals.html">Verticals</a></li>
       <li><a href="tools.html">Tools</a></li>
-      <li><a href="how-it-works.html">How It Works</a></li><li><a href="government.html">Government</a></li>
+      <li><a href="how-it-works.html">How It Works</a></li>
+      <li><a href="government.html">Government</a></li>
       <li><a href="apply.html" class="nav-cta">Apply Now</a></li>
     </ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
@@ -1256,19 +1285,19 @@
         <p class="section-sub light" style="margin-bottom:40px">No experience required. No upfront cost. Just apply, get certified, and start closing. The only question is: how big do you want to build?</p>
         <div style="display:flex;flex-direction:column;gap:20px;">
           <div style="display:flex;align-items:center;gap:16px;">
-            <div style="width:40px;height:40px;background:rgba(212,168,67,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">✓</div>
+            <div style="width:40px;height:40px;background:rgba(212,168,67,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;color:var(--gold);">✓</div>
             <span style="color:var(--gray-300);font-size:14px;">Splits up to 85% — among the highest in the industry</span>
           </div>
           <div style="display:flex;align-items:center;gap:16px;">
-            <div style="width:40px;height:40px;background:rgba(212,168,67,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">✓</div>
+            <div style="width:40px;height:40px;background:rgba(212,168,67,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;color:var(--gold);">✓</div>
             <span style="color:var(--gray-300);font-size:14px;">Specialized vertical toolkits for Gov, Auto & Restaurant</span>
           </div>
           <div style="display:flex;align-items:center;gap:16px;">
-            <div style="width:40px;height:40px;background:rgba(212,168,67,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">✓</div>
+            <div style="width:40px;height:40px;background:rgba(212,168,67,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;color:var(--gold);">✓</div>
             <span style="color:var(--gray-300);font-size:14px;">Lifetime residual ownership — your book, your money</span>
           </div>
           <div style="display:flex;align-items:center;gap:16px;">
-            <div style="width:40px;height:40px;background:rgba(212,168,67,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">✓</div>
+            <div style="width:40px;height:40px;background:rgba(212,168,67,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;color:var(--gold);">✓</div>
             <span style="color:var(--gray-300);font-size:14px;">Backed by FRP — 20+ years, hundreds of active merchants</span>
           </div>
         </div>
@@ -1281,16 +1310,16 @@
         <div class="form-row">
           <div class="form-group">
             <label>First Name</label>
-            <input type="text" name="first_name" placeholder="Marcus" required>
+            <input type="text" name="first_name" placeholder="First" required>
           </div>
           <div class="form-group">
             <label>Last Name</label>
-            <input type="text" name="last_name" placeholder="Reynolds" required>
+            <input type="text" name="last_name" placeholder="Last" required>
           </div>
         </div>
         <div class="form-group">
           <label>Email Address</label>
-          <input type="email" name="email" placeholder="marcus@example.com" required>
+          <input type="email" name="email" placeholder="you@example.com" required>
         </div>
         <div class="form-group">
           <label>Phone Number</label>
@@ -1310,7 +1339,7 @@
         <div class="form-group">
           <label>Primary Vertical Interest</label>
           <select name="timeline">
-            <option value="">— Select all that apply —</option>
+            <option value="">— Select one —</option>
             <option>Government / Municipal</option>
             <option>Auto Repair / Mechanics</option>
             <option>Restaurants / Food Service</option>
@@ -1354,7 +1383,8 @@
           <li><a href="splits.html">Split Schedule</a></li>
           <li><a href="verticals.html">Target Verticals</a></li>
           <li><a href="tools.html">Agent Tools</a></li>
-          <li><a href="how-it-works.html">How It Works</a></li><li><a href="government.html">Government</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="government.html">Government</a></li>
           <li><a href="apply.html">Apply Now</a></li>
         </ul>
       </div>
@@ -1371,20 +1401,20 @@
         <div class="footer-col-title">Contact</div>
         <ul class="footer-links">
           <li><a href="tel:4049901183">404-990-1183</a></li>
-          <li><a href="/cdn-cgi/l/email-protection#86eff5e9c6e0eae7f2f4e7f2e3eff5e9a8e5e9eb"><span class="__cf_email__" data-cfemail="9ef7edf1def8f2ffeaecffeafbf7edf1b0fdf1f3">[email&#160;protected]</span></a></li>
+          <li><a href="mailto:iso@flatrateiso.com">iso@flatrateiso.com</a></li>
           <li><a href="https://maps.google.com/?q=Atlanta,+GA" target="_blank" rel="noopener">Atlanta, GA</a></li>
           <li><a href="https://flatrateprocessing.com" target="_blank">FlatRateProcessing.com</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2025 FlatRate ISO · A Division of Flat Rate Processing · All Rights Reserved</span>
+      <span>© 2026 FlatRate ISO · A Division of Flat Rate Processing · All Rights Reserved</span>
       <span>FlatRateISO.com · <a href="https://flatrateprocessing.com" target="_blank">FlatRateProcessing.com</a></span>
     </div>
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   // Smooth nav active state
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a');
@@ -1479,6 +1509,33 @@
     el.style.transition = 'opacity .6s ease, transform .6s ease';
     observer.observe(el);
   });
+</script>
+<script>
+(function(){
+  var toggle=document.getElementById('nav-toggle');
+  var nav=document.querySelector('.nav-links');
+  if(!toggle||!nav)return;
+  toggle.addEventListener('click',function(e){
+    e.stopPropagation();
+    toggle.classList.toggle('active');
+    nav.classList.toggle('active');
+    document.body.classList.toggle('menu-open');
+  });
+  nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){
+      toggle.classList.remove('active');
+      nav.classList.remove('active');
+      document.body.classList.remove('menu-open');
+    });
+  });
+  document.addEventListener('click',function(e){
+    if(nav.classList.contains('active')&&!nav.contains(e.target)&&!toggle.contains(e.target)){
+      toggle.classList.remove('active');
+      nav.classList.remove('active');
+      document.body.classList.remove('menu-open');
+    }
+  });
+})();
 </script>
 <script src="https://blue-panther-862989.hostingersite.com/api/ga4.js" data-ga4="" async></script>
 <script src="https://blue-panther-862989.hostingersite.com/api/tracker.js" data-business="flatrate-iso" defer></script>

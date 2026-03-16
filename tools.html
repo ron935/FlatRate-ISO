@@ -86,7 +86,25 @@ footer{background:#060e1c;padding:48px 0 24px;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(.7);}}
 .fade-up{animation:fadeUp .7s ease forwards;}
-@media(max-width:768px){.nav-links{display:none;}.footer-top{grid-template-columns:1fr 1fr;}.form-row{grid-template-columns:1fr;}}
+.nav-toggle{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:36px;height:36px;background:none;border:none;cursor:pointer;padding:4px;z-index:1001;}
+.nav-toggle span{display:block;width:24px;height:2px;background:var(--gray-300);border-radius:2px;transition:all .3s ease;}
+.nav-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
+.nav-toggle.active span:nth-child(2){opacity:0;}
+.nav-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
+@media(max-width:768px){
+  .nav-toggle{display:flex;}
+  .nav-links{display:flex!important;flex-direction:column;position:fixed;top:0;right:-100%;width:280px;height:100vh;background:var(--navy-mid);padding:80px 32px 32px;gap:0!important;z-index:1000;transition:right .3s ease;box-shadow:-4px 0 24px rgba(0,0,0,.4);}
+  .nav-links.active{right:0;}
+  .nav-links li{border-bottom:1px solid rgba(255,255,255,.06);}
+  .nav-links a{display:block;padding:16px 0;font-size:15px;}
+  .nav-links .nav-cta{text-align:center;margin-top:16px;}
+  body.menu-open{overflow:hidden;}
+  .footer-top{grid-template-columns:1fr 1fr;}
+  .form-row{grid-template-columns:1fr;}
+  .mob-stack{grid-template-columns:1fr!important;}
+  .mob-stack>*{order:unset!important;}
+  .mob-flex-stack{flex-direction:column!important;text-align:center;}
+}
 </style>
 </head><body>
 <div class="topbar">A Division of <strong><a href="https://flatrateprocessing.com" target="_blank">Flat Rate Processing (FRP)</a></strong> &nbsp;·&nbsp; Est. 2004 · Atlanta, GA &nbsp;·&nbsp; Agent Support: <a href="tel:4049901183">404-990-1183</a></div>
@@ -97,6 +115,7 @@ footer{background:#060e1c;padding:48px 0 24px;}
       <div class="logo-sub">Agent & ISO Partner Program</div>
     </a>
     <ul class="nav-links"><li><a href="splits.html">Splits</a></li><li><a href="verticals.html">Verticals</a></li><li><a href="tools.html" class="active">Tools</a></li><li><a href="how-it-works.html">How It Works</a></li><li><a href="government.html">Government</a></li><li><a href="apply.html" class="nav-cta">Apply Now</a></li></ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
   </div>
 </nav>
 <div class="page-hero">
@@ -122,7 +141,7 @@ footer{background:#060e1c;padding:48px 0 24px;}
     </div>
 
     <!-- STATEMENT ANALYZER - FEATURED -->
-    <div class="fade-on-scroll" style="background:var(--navy);border-radius:16px;padding:48px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-bottom:28px;">
+    <div class="fade-on-scroll mob-stack" style="background:var(--navy);border-radius:16px;padding:48px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-bottom:28px;">
       <div>
         <div style="background:var(--gold);color:var(--navy);display:inline-block;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;padding:4px 12px;border-radius:2px;margin-bottom:20px;text-transform:uppercase;font-weight:700;">⭐ Most Powerful Tool</div>
         <h3 style="font-family:'Bebas Neue',sans-serif;font-size:44px;color:var(--white);line-height:1;margin-bottom:16px;">Statement<br>Analyzer</h3>
@@ -147,7 +166,7 @@ footer{background:#060e1c;padding:48px 0 24px;}
     </div>
 
     <!-- TOOLS GRID -->
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:28px;">
+    <div class="mob-stack" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:28px;">
       <div class="fade-on-scroll" style="background:var(--white);border-radius:12px;padding:32px;box-shadow:0 2px 12px rgba(0,0,0,.06);transition:all .3s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 40px rgba(0,0,0,.1)'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px rgba(0,0,0,.06)'">
         <div style="font-size:36px;margin-bottom:16px;">📄</div>
         <h4 style="font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--navy);margin-bottom:8px;">Proposal Generator</h4>
@@ -214,7 +233,7 @@ footer{background:#060e1c;padding:48px 0 24px;}
     </div>
 
     <!-- Integration Banner -->
-    <div style="background:var(--navy);border-radius:12px;padding:40px;display:flex;align-items:center;justify-content:space-between;gap:32px;">
+    <div class="mob-flex-stack" style="background:var(--navy);border-radius:12px;padding:40px;display:flex;align-items:center;justify-content:space-between;gap:32px;">
       <div>
         <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--gold);letter-spacing:.15em;text-transform:uppercase;margin-bottom:12px;">Software Integration Network</div>
         <h3 style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--white);margin-bottom:8px;">90% of Eligible Software — Already Integrated</h3>
@@ -263,7 +282,7 @@ footer{background:#060e1c;padding:48px 0 24px;}
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2025 FlatRate ISO · A Division of Flat Rate Processing · FlatRateISO.com</span>
+      <span>© 2026 FlatRate ISO · A Division of Flat Rate Processing · FlatRateISO.com</span>
       <span><a href="https://flatrateprocessing.com" target="_blank">FlatRateProcessing.com</a></span>
     </div>
   </div>
@@ -276,6 +295,33 @@ document.querySelectorAll('.fade-on-scroll').forEach(el=>{
 document.querySelectorAll('.form-submit').forEach(btn=>{
   btn.addEventListener('click',function(){{this.textContent='✓ Submitted!';this.style.background='#22c55e';this.style.color='white';setTimeout(()=>{this.textContent='Submit Application →';this.style.background='';this.style.color='';},3000);}});
 });
+</script>
+<script>
+(function(){
+  var toggle=document.getElementById('nav-toggle');
+  var nav=document.querySelector('.nav-links');
+  if(!toggle||!nav)return;
+  toggle.addEventListener('click',function(e){
+    e.stopPropagation();
+    toggle.classList.toggle('active');
+    nav.classList.toggle('active');
+    document.body.classList.toggle('menu-open');
+  });
+  nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){
+      toggle.classList.remove('active');
+      nav.classList.remove('active');
+      document.body.classList.remove('menu-open');
+    });
+  });
+  document.addEventListener('click',function(e){
+    if(nav.classList.contains('active')&&!nav.contains(e.target)&&!toggle.contains(e.target)){
+      toggle.classList.remove('active');
+      nav.classList.remove('active');
+      document.body.classList.remove('menu-open');
+    }
+  });
+})();
 </script>
 <script src="https://blue-panther-862989.hostingersite.com/api/ga4.js" data-ga4="" async></script>
 <script src="https://blue-panther-862989.hostingersite.com/api/tracker.js" data-business="flatrate-iso" defer></script>
