@@ -14,6 +14,8 @@
 :root{--navy:#0a1628;--navy-mid:#112240;--gold:#d4a843;--gold-accessible:#b8922e;--white:#ffffff;--gray-500:#7a8799;--text:#1a2540;}
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--white);min-height:100vh;display:flex;flex-direction:column;}
+.skip-link{position:absolute;top:-40px;left:0;background:var(--gold);color:var(--navy);padding:8px 16px;z-index:1000;font-size:14px;text-decoration:none;}
+.skip-link:focus{top:0;}
 .topbar{background:rgba(0,0,0,.3);text-align:center;padding:8px 20px;font-size:12px;color:rgba(255,255,255,.5);letter-spacing:.04em;}
 .topbar a{color:var(--gold);text-decoration:underline;text-decoration-color:rgba(212,168,67,0.4);text-underline-offset:2px;}
 .topbar strong a{color:var(--gold);}
@@ -37,18 +39,21 @@ nav{padding:0 40px;border-bottom:1px solid rgba(255,255,255,.06);}
 .error-links a:hover{color:var(--white);}
 .btn-home{display:inline-block;background:var(--gold);color:var(--navy);padding:14px 32px;border-radius:6px;font-weight:600;font-size:15px;text-decoration:none;margin-bottom:24px;transition:background .2s;}
 .btn-home:hover{background:var(--gold-accessible);}
-@media(max-width:640px){nav{padding:0 20px;}.nav-links{display:none;}}
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;}
+.nav-toggle span{display:block;width:22px;height:2px;background:var(--white);margin:5px 0;transition:all .3s;}
+@media(max-width:640px){nav{padding:0 20px;}.nav-toggle{display:block;}.nav-links{display:none;position:absolute;top:72px;left:0;right:0;background:var(--navy-mid);flex-direction:column;padding:20px;gap:16px;z-index:99;border-bottom:1px solid rgba(255,255,255,.06);}.nav-links.open{display:flex;}.nav-links .nav-cta{text-align:center;}}
 </style>
 </head>
 <body>
-<div class="topbar">A Division of <strong><a href="https://flatrateprocessing.com" target="_blank">Flat Rate Processing (FRP)</a></strong> &nbsp;&middot;&nbsp; Est. 2004 &middot; Atlanta, GA &nbsp;&middot;&nbsp; Agent Support: <a href="tel:4049901183">404-990-1183</a></div>
+<a href="#main" class="skip-link">Skip to content</a>
+<div class="topbar">A Division of <strong><a href="https://flatrateprocessing.com" target="_blank" rel="noopener">Flat Rate Processing (FRP)</a></strong> &nbsp;&middot;&nbsp; Est. 2004 &middot; Atlanta, GA &nbsp;&middot;&nbsp; Agent Support: <a href="tel:4049901183">404-990-1183</a></div>
 <nav>
   <div class="nav-inner">
     <a href="index.html" class="logo-wrap">
       <div class="logo-main"><span>FlatRate</span> ISO</div>
       <div class="logo-sub">Agent & ISO Partner Program</div>
     </a>
-    <ul class="nav-links">
+    <ul class="nav-links" id="nav-links">
       <li><a href="splits.html">Splits</a></li>
       <li><a href="verticals.html">Verticals</a></li>
       <li><a href="tools.html">Tools</a></li>
@@ -56,8 +61,10 @@ nav{padding:0 40px;border-bottom:1px solid rgba(255,255,255,.06);}
       <li><a href="government.html">Government</a></li>
       <li><a href="apply.html" class="nav-cta">Apply Now</a></li>
     </ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
   </div>
 </nav>
+<main id="main">
 <div class="content">
   <div>
     <div class="error-code">404</div>
@@ -73,5 +80,7 @@ nav{padding:0 40px;border-bottom:1px solid rgba(255,255,255,.06);}
     </div>
   </div>
 </div>
+</main>
+<script>document.getElementById('nav-toggle').addEventListener('click',function(){document.getElementById('nav-links').classList.toggle('open');});</script>
 </body>
 </html>
