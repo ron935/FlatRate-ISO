@@ -1517,7 +1517,7 @@
 
   // Form submission
   var _isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-  var apiBase = _isLocal ? 'http://localhost:8888/dashboard/api' : 'https://blue-panther-862989.hostingersite.com/api';
+  var apiBase = _isLocal ? 'http://localhost:8888/dashboard/api' : 'https://ronb.ipwebsolutions.net/api';
 
   document.getElementById('home-apply-form').addEventListener('submit', function(e) {
     e.preventDefault();
@@ -1527,7 +1527,8 @@
     var raw = new FormData(form);
 
     var formData = new FormData();
-    formData.append('business', raw.get('business') || 'flatrate-iso');
+    formData.append('business', 'flatrateiso');
+    formData.append('token', 'fN4lImkrXdU7NTwfsK0wkRR5PgSBpE9OIaKyGl3n');
     formData.append('name', ((raw.get('first_name') || '') + ' ' + (raw.get('last_name') || '')).trim());
     formData.append('email', raw.get('email') || '');
     formData.append('phone', raw.get('phone') || '');

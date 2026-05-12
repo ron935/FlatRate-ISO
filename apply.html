@@ -359,7 +359,7 @@ document.querySelectorAll('.fade-on-scroll').forEach(el=>{
   new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}});},{threshold:.1}).observe(el);
 });
 var _isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-var apiBase = _isLocal ? 'http://localhost:8888/dashboard/api' : 'https://blue-panther-862989.hostingersite.com/api';
+var apiBase = _isLocal ? 'http://localhost:8888/dashboard/api' : 'https://ronb.ipwebsolutions.net/api';
 
 document.getElementById('apply-form').addEventListener('submit', function(e) {
   e.preventDefault();
@@ -369,7 +369,8 @@ document.getElementById('apply-form').addEventListener('submit', function(e) {
   var raw = new FormData(form);
 
   var formData = new FormData();
-  formData.append('business', raw.get('business') || 'flatrate-iso');
+  formData.append('business', 'flatrateiso');
+  formData.append('token', 'fN4lImkrXdU7NTwfsK0wkRR5PgSBpE9OIaKyGl3n');
   formData.append('name', ((raw.get('first_name') || '') + ' ' + (raw.get('last_name') || '')).trim());
   formData.append('email', raw.get('email') || '');
   formData.append('phone', raw.get('phone') || '');
