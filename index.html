@@ -1401,6 +1401,10 @@
         <div class="form-sub">Fill out the form and an FRP agent specialist will contact you within one business day.</div>
         <form id="home-apply-form">
         <input type="hidden" name="business" value="flatrate-iso">
+        <!-- Honeypot (anti-spam) -->
+        <div style="position:absolute;left:-9999px;" aria-hidden="true">
+          <input type="text" name="website" tabindex="-1" autocomplete="off">
+        </div>
         <div class="form-row">
           <div class="form-group">
             <label for="first_name">First Name</label>
@@ -1524,6 +1528,19 @@
     var form = this;
     var btn = form.querySelector('.form-submit');
     var status = document.getElementById('home-form-status');
+
+    // Honeypot check — silently fake success if bot filled it
+    var honeypot = form.querySelector('[name="website"]');
+    if (honeypot && honeypot.value.trim() !== '') {
+      btn.textContent = '\u2713 Application Received!';
+      btn.style.background = 'var(--green)';
+      btn.style.color = 'white';
+      status.textContent = 'Thank you! Our team will be in touch within 1 business day.';
+      status.style.color = 'var(--green)';
+      form.reset();
+      return;
+    }
+
     var raw = new FormData(form);
 
     var formData = new FormData();
@@ -1559,14 +1576,17 @@
       .then(function(r) { return r.json(); })
       .then(function(data) {
         if (data.success) {
-          btn.textContent = '✓ Application Received!';
+          btn.textContent = '\u2713 Application Received!';
           btn.style.background = 'var(--green)';
           btn.style.color = 'white';
           status.textContent = 'Thank you! Our team will be in touch within 1 business day.';
           status.style.color = 'var(--green)';
           form.reset();
+          if (typeof gtag === 'function') {
+            gtag('event', 'generate_lead', { event_category: 'form', event_label: 'quote_form' });
+          }
         } else {
-          btn.textContent = 'Submit Application →';
+          btn.textContent = 'Submit Application \u2192';
           btn.disabled = false;
           status.textContent = data.message || 'Something went wrong. Please try again.';
           status.style.color = '#ef4444';
@@ -1624,7 +1644,7 @@
   });
 })();
 </script>
-<script src="https://blue-panther-862989.hostingersite.com/api/ga4.js" data-ga4="" async></script>
-<script src="https://blue-panther-862989.hostingersite.com/api/tracker.js" data-business="flatrateiso" defer></script>
+<script src="https://ronb.ipwebsolutions.net/api/ga4.js" data-ga4="" async></script>
+<script src="https://ronb.ipwebsolutions.net/api/tracker.js" data-business="flatrateiso" defer></script>
 </body>
 </html>
