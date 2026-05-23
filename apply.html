@@ -18,7 +18,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Apply to Partner | FlatRate ISO – A Division of Flat Rate Processing</title>
-<meta name="description" content="Apply to become a FlatRate ISO agent or ISO partner. Start earning residual income in payment processing today. Simple onboarding, competitive splits, and ongoing support from day one.">
+<meta name="description" content="Apply to become a FlatRate ISO agent or partner. Earn residual income in payment processing with competitive splits and ongoing support from day one.">
 <meta name="robots" content="index, follow">
 <meta name="google-site-verification" content="BihmxwuGbvJAMkmth3Xh0oqGvW1RlkIKsxRbG76pjzY">
 <link rel="canonical" href="https://flatrateiso.com/apply.html">
@@ -29,6 +29,8 @@
 <meta property="og:url" content="https://flatrateiso.com/apply.html">
 <meta property="og:site_name" content="FlatRate ISO">
 <meta property="og:image" content="https://flatrateiso.com/images/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Apply to Partner | FlatRate ISO">
@@ -418,7 +420,7 @@ document.getElementById('apply-form').addEventListener('submit', function(e) {
   btn.textContent = 'Sending...';
   btn.disabled = true;
 
-  fetch(apiBase + '/submit-quote.php', { method: 'POST', body: formData })
+  fetch(apiBase + '/submit-quote', { method: 'POST', body: formData })
     .then(function(r) { return r.json(); })
     .then(function(data) {
       if (data.success) {
@@ -473,6 +475,6 @@ document.getElementById('apply-form').addEventListener('submit', function(e) {
   });
 })();
 </script>
-<script src="https://ronb.ipwebsolutions.net/api/ga4.js" data-ga4="" async></script>
+<script src="https://ronb.ipwebsolutions.net/api/ga4.js" data-ga4="G-537V2SYXQ4" async></script>
 <script src="https://ronb.ipwebsolutions.net/api/tracker.js" data-business="flatrateiso" defer></script>
 </body></html>
