@@ -13,6 +13,7 @@
     window.gtag = gtag;
     gtag('js', new Date());
     gtag('config', 'G-537V2SYXQ4');
+    gtag('config', 'AW-18231746959');
   });
 </script>
 <meta charset="UTF-8">
@@ -434,6 +435,7 @@ document.getElementById('apply-form').addEventListener('submit', function(e) {
         form.reset();
         if (typeof gtag === 'function') {
           gtag('event', 'generate_lead', { event_category: 'form', event_label: 'quote_form' });
+          gtag('event', 'conversion', { 'send_to': 'AW-18231746959/-nsrCLKquL0cEI_DyfVD' });
         }
       } else {
         btn.textContent = 'Submit Application →';
