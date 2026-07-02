@@ -139,6 +139,19 @@ footer{background:#060e1c;padding:48px 0 24px;}
 .footer-bottom a{text-decoration:underline;text-decoration-color:rgba(212,168,67,0.4);text-underline-offset:3px;}
 .topbar a{text-decoration:underline;text-decoration-color:rgba(212,168,67,0.4);text-underline-offset:2px;}
 .breadcrumb a{text-decoration:underline;text-decoration-color:rgba(212,168,67,0.4);text-underline-offset:2px;}
+/* ── Our Network footer strip (added 2026-07-02) ── */
+.footer-network { border-top: 1px solid rgba(255,255,255,.1); margin: 8px 0 22px; padding-top: 22px; text-align: center; }
+.footer-network .net-label { font-family: 'DM Sans', sans-serif; font-size: .7rem; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-bottom: 14px; }
+.footer-network .net-brands { display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline; gap: .5rem 1.4rem; }
+.footer-network .net-brands a { position: relative; font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 1.05rem; color: rgba(255,255,255,.7); text-decoration: none; white-space: nowrap; transition: color .2s ease; }
+.footer-network .net-brands a:hover { color: #fff; }
+.footer-network .net-brands a.current { color: #f0c96a; }
+.footer-network .net-brands a:not(:last-child)::after { content: '·'; position: absolute; right: -.8rem; color: rgba(255,255,255,.3); }
+.footer-network .net-partners { margin-top: 16px; display: flex; justify-content: center; align-items: center; gap: 1rem 1.8rem; flex-wrap: wrap; }
+.footer-network .net-partners .net-plabel { font-family: 'DM Sans', sans-serif; font-size: .64rem; letter-spacing: .16em; text-transform: uppercase; color: rgba(255,255,255,.35); }
+.footer-network .net-partners a { display: inline-flex; align-items: center; height: 22px; opacity: .55; transition: opacity .2s ease; }
+.footer-network .net-partners a:hover { opacity: .9; }
+.footer-network .net-partners img { height: 22px; width: auto; filter: brightness(0) invert(1); }
 </style>
 <script type="application/ld+json">
 {
@@ -435,9 +448,26 @@ function calcResidual(){
         </ul>
       </div>
     </div>
-        <div class="ipw-network" style="text-align:center;padding:18px 0 0;margin-top:18px;border-top:1px solid rgba(255,255,255,0.1);font-size:0.85rem;color:rgba(255,255,255,0.5);">
-      <span>Our Solutions: </span><a href="https://ipwebsolutions.net" target="_blank" rel="noopener">IP Web Solutions — Web Development & Digital Marketing</a> · <a href="https://ippayware.net" target="_blank" rel="noopener">IP Payware — Payment Processing & POS</a>
+    <div class="footer-network">
+      <div class="net-label">Our Network</div>
+      <div class="net-brands">
+        <a href="https://ipwebsolutions.net" target="_blank" rel="noopener">IP Web Solutions</a>
+        <a href="https://ippayware.net" target="_blank" rel="noopener">IP Payware</a>
+        <a href="https://aipayware.com" target="_blank" rel="noopener">AI Payware</a>
+        <a href="https://flatrateiso.com" class="current">FlatRate ISO</a>
+        <a href="https://everythingbutthefood.net" target="_blank" rel="noopener">Everything But The Food</a>
+        <a href="https://kioxx.com" target="_blank" rel="noopener">Kioxx</a>
+        <a href="https://techconfia.com" target="_blank" rel="noopener">Tech Confia</a>
+        <a href="https://syncsalesystems.com" target="_blank" rel="noopener">Sync Sale POS</a>
+      </div>
+      <div class="net-partners">
+        <span class="net-plabel">Partners</span>
+        <a href="https://onepos.com" target="_blank" rel="noopener" title="OnePOS"><img src="/images/network/onepos.png" alt="OnePOS"></a>
+        <a href="https://ordercounter.com" target="_blank" rel="noopener" title="OrderCounter"><img src="/images/network/ordercounter.png" alt="OrderCounter"></a>
+      </div>
     </div>
+        <div class="ipw-network" style="text-align:center;padding:18px 0 0;margin-top:18px;border-top:1px solid rgba(255,255,255,0.1);font-size:0.85rem;color:rgba(255,255,255,0.5);">
+      <span>Our Solutions: </span><a href="https://ipwebsolutions.net" target="_blank" rel="noopener">IP Web Solutions — Web Development & Digital Marketing</a> · <a href="https://ippayware.net" target="_blank" rel="noopener">IP Payware — Payment Processing & POS</a> · <a href="https://aipayware.com" target="_blank" rel="noopener">AI Payware — Payments for the AI Economy</a> · <a href="https://everythingbutthefood.net" target="_blank" rel="noopener">Everything But The Food — Restaurant POS Solutions</a> · <a href="https://kioxx.com" target="_blank" rel="noopener">Kioxx — Self-Service Kiosk & POS</a> · <a href="https://techconfia.com" target="_blank" rel="noopener">Tech Confia — Bilingual Payments & Dual Pricing</a> · <a href="https://syncsalesystems.com" target="_blank" rel="noopener">Sync Sale POS — Colorado POS & Payments</a></div>
 <div class="footer-bottom">
       <span>© 2026 FlatRate ISO · A Division of Flat Rate Processing · FlatRateISO.com</span>
       <span><a href="https://flatrateprocessing.com" target="_blank" rel="noopener">FlatRateProcessing.com</a></span>
