@@ -148,6 +148,17 @@ footer{background:#060e1c;padding:48px 0 24px;}
 .footer-network .net-partners a { display: inline-flex; align-items: center; height: 22px; opacity: .55; transition: opacity .2s ease; }
 .footer-network .net-partners a:hover { opacity: .9; }
 .footer-network .net-partners img { height: 22px; width: auto; filter: brightness(0) invert(1); }
+/* ── FAQ accordion (added 2026-07-17) ── */
+.faq-section{background:var(--gray-100);}
+.faq-list{max-width:840px;margin:0 auto;display:flex;flex-direction:column;gap:14px;}
+.faq-item{background:var(--white);border:1px solid var(--gray-300);border-radius:10px;overflow:hidden;transition:box-shadow .2s,border-color .2s;}
+.faq-item[open]{box-shadow:0 6px 24px rgba(10,22,40,.08);border-color:var(--gold);}
+.faq-item summary{list-style:none;cursor:pointer;padding:22px 26px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:16px;color:var(--navy);display:flex;justify-content:space-between;align-items:center;gap:16px;}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary::after{content:'+';font-family:'DM Mono',monospace;font-size:26px;color:var(--gold-accessible);line-height:1;flex-shrink:0;}
+.faq-item[open] summary::after{content:'−';}
+.faq-item .faq-a{padding:0 26px 24px;color:var(--text);font-size:15px;line-height:1.75;}
+.faq-item .faq-a a{color:var(--gold-accessible);text-decoration:underline;text-underline-offset:2px;}
 </style>
 <script type="application/ld+json">
 {
@@ -163,7 +174,7 @@ footer{background:#060e1c;padding:48px 0 24px;}
   },
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "2750 Holcomb Bridge Rd",
+    "streetAddress": "2750 Holcomb Bridge Rd, Suite 206",
     "addressLocality": "Alpharetta",
     "addressRegion": "GA",
     "postalCode": "30022",
@@ -189,9 +200,23 @@ footer{background:#060e1c;padding:48px 0 24px;}
 </script>
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192x192.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "How do I become a payment processing agent with FlatRate ISO?", "acceptedAnswer": {"@type": "Answer", "text": "It's a five-step path: (1) apply online for free, (2) get FRP-certified in 3–5 days at your own pace, (3) receive your full agent kit, (4) close your first accounts, and (5) get paid monthly residuals for the life of every account. Most agents close their first account within 30 days of joining."}},
+    {"@type": "Question", "name": "Do I need prior experience to become an agent?", "acceptedAnswer": {"@type": "Answer", "text": "No. Applying is free and fast, with no application fees and no experience requirements — FRP trains everyone from scratch through its certification curriculum."}},
+    {"@type": "Question", "name": "How long does FRP certification take?", "acceptedAnswer": {"@type": "Answer", "text": "Most agents complete certification in 3 to 5 days. It's self-paced and covers interchange pricing, reading merchant statements, vertical-specific sales tactics, and objection handling."}},
+    {"@type": "Question", "name": "What's included in the FlatRate ISO agent kit?", "acceptedAnswer": {"@type": "Answer", "text": "After certification you receive access to the statement analyzer, proposal generator, agent mobile app, co-branded marketing assets, vertical sales playbooks, and Government Portal credentials — plus a dedicated onboarding call with an FRP agent specialist."}},
+    {"@type": "Question", "name": "How fast does underwriting approve new merchants?", "acceptedAnswer": {"@type": "Answer", "text": "Our underwriting team turns most merchant applications around in 24–48 hours after you submit them through the portal."}},
+    {"@type": "Question", "name": "When do I get my first residual check?", "acceptedAnswer": {"@type": "Answer", "text": "Most agents are closing their first account within 30 days of joining, and residuals are paid monthly thereafter. Your portfolio compounds over time — every new merchant stacks on top of what you've already built, with no clawbacks."}}
+  ]
+}
+</script>
 </head>
 <body>
-<div class="topbar">A Division of <strong><a href="https://flatrateprocessing.com" target="_blank" rel="noopener">Flat Rate Processing (FRP)</a></strong> &nbsp;·&nbsp; Est. 2004 · Atlanta, GA &nbsp;·&nbsp; Agent Support: <a href="tel:4706727198">470-672-7198</a></div>
+<div class="topbar">A Division of <strong><a href="https://flatrateprocessing.com" target="_blank" rel="noopener">Flat Rate Processing (FRP)</a></strong> &nbsp;·&nbsp; Est. 2004 · Atlanta, GA &nbsp;·&nbsp; Agent Support: <a href="tel:4704705942">470-470-5942</a></div>
 <nav>
   <div class="nav-inner">
     <a href="index.html" class="logo-wrap">
@@ -326,6 +351,25 @@ footer{background:#060e1c;padding:48px 0 24px;}
   </div>
 </section>
 
+<!-- FAQ (added 2026-07-17) -->
+<section class="faq-section">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:48px;">
+      <div class="section-eyebrow">Answers</div>
+      <h2 class="section-title">Becoming an Agent — FAQ</h2>
+      <p class="section-sub" style="margin:0 auto;">Everything you need to know about the path from application to first residual check.</p>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item"><summary>How do I become a payment processing agent with FlatRate ISO?</summary><div class="faq-a">It's a five-step path: (1) apply online for free, (2) get FRP-certified in 3–5 days at your own pace, (3) receive your full agent kit, (4) close your first accounts, and (5) get paid monthly residuals for the life of every account. Most agents close their first account within 30 days of joining.</div></details>
+      <details class="faq-item"><summary>Do I need prior experience to become an agent?</summary><div class="faq-a">No. Applying is free and fast, with no application fees and no experience requirements — FRP trains everyone from scratch through its certification curriculum.</div></details>
+      <details class="faq-item"><summary>How long does FRP certification take?</summary><div class="faq-a">Most agents complete certification in 3 to 5 days. It's self-paced and covers interchange pricing, reading merchant statements, vertical-specific sales tactics, and objection handling.</div></details>
+      <details class="faq-item"><summary>What's included in the FlatRate ISO agent kit?</summary><div class="faq-a">After certification you receive access to the statement analyzer, proposal generator, agent mobile app, co-branded marketing assets, vertical sales playbooks, and Government Portal credentials — plus a dedicated onboarding call with an FRP agent specialist.</div></details>
+      <details class="faq-item"><summary>How fast does underwriting approve new merchants?</summary><div class="faq-a">Our underwriting team turns most merchant applications around in 24–48 hours after you submit them through the portal.</div></details>
+      <details class="faq-item"><summary>When do I get my first residual check?</summary><div class="faq-a">Most agents are closing their first account within 30 days of joining, and residuals are paid monthly thereafter. Your portfolio compounds over time — every new merchant stacks on top of what you've already built, with no clawbacks.</div></details>
+    </div>
+  </div>
+</section>
+
 <section style="background:var(--gold-pale);">
   <div class="container" style="text-align:center;">
     <div class="section-eyebrow" style="color:var(--navy);">Ready to Start?</div>
@@ -366,7 +410,7 @@ footer{background:#060e1c;padding:48px 0 24px;}
       <div>
         <div class="footer-col-title">Contact</div>
         <ul class="footer-links">
-          <li><a href="tel:4706727198">470-672-7198</a></li>
+          <li><a href="tel:4704705942">470-470-5942</a></li>
           <li><a href="mailto:iso@flatrateiso.com">iso@flatrateiso.com</a></li>
           <li><a href="https://maps.google.com/?q=Atlanta,+GA" target="_blank" rel="noopener">Atlanta, GA</a></li>
           <li><a href="https://flatrateprocessing.com" target="_blank" rel="noopener">FlatRateProcessing.com</a></li>
@@ -384,6 +428,7 @@ footer{background:#060e1c;padding:48px 0 24px;}
         <a href="https://kioxx.com" target="_blank" rel="noopener">Kioxx</a>
         <a href="https://techconfia.com" target="_blank" rel="noopener">Tech Confia</a>
         <a href="https://syncsalesystems.com" target="_blank" rel="noopener">Sync Sale POS</a>
+        <a href="https://flatrateprocessing.com" target="_blank" rel="noopener">Flat Rate Processing</a>
       </div>
       <div class="net-partners">
         <span class="net-plabel">Partners</span>
@@ -392,13 +437,14 @@ footer{background:#060e1c;padding:48px 0 24px;}
       </div>
     </div>
         <div class="ipw-network" style="text-align:center;padding:18px 0 0;margin-top:18px;border-top:1px solid rgba(255,255,255,0.1);font-size:0.85rem;color:rgba(255,255,255,0.5);">
-      <span>Our Solutions: </span><a href="https://ipwebsolutions.net" target="_blank" rel="noopener">IP Web Solutions — Web Development & Digital Marketing</a> · <a href="https://ippayware.net" target="_blank" rel="noopener">IP Payware — Payment Processing & POS</a> · <a href="https://aipayware.com" target="_blank" rel="noopener">AI Payware — Payments for the AI Economy</a> · <a href="https://everythingbutthefood.net" target="_blank" rel="noopener">Everything But The Food — Restaurant POS Solutions</a> · <a href="https://kioxx.com" target="_blank" rel="noopener">Kioxx — Self-Service Kiosk & POS</a> · <a href="https://techconfia.com" target="_blank" rel="noopener">Tech Confia — Bilingual Payments & Dual Pricing</a> · <a href="https://syncsalesystems.com" target="_blank" rel="noopener">Sync Sale POS — Colorado POS & Payments</a></div>
+      <span>Our Solutions: </span><a href="https://ipwebsolutions.net" target="_blank" rel="noopener">IP Web Solutions — Web Development & Digital Marketing</a> · <a href="https://ippayware.net" target="_blank" rel="noopener">IP Payware — Payment Processing & POS</a> · <a href="https://aipayware.com" target="_blank" rel="noopener">AI Payware — Payments for the AI Economy</a> · <a href="https://everythingbutthefood.net" target="_blank" rel="noopener">Everything But The Food — Restaurant POS Solutions</a> · <a href="https://kioxx.com" target="_blank" rel="noopener">Kioxx — Self-Service Kiosk & POS</a> · <a href="https://techconfia.com" target="_blank" rel="noopener">Tech Confia — Bilingual Payments & Dual Pricing</a> · <a href="https://syncsalesystems.com" target="_blank" rel="noopener">Sync Sale POS — Colorado POS & Payments</a> · <a href="https://flatrateprocessing.com" target="_blank" rel="noopener">Flat Rate Processing — Merchant Payment Processing</a></div>
 <div class="footer-bottom">
       <span>© 2026 FlatRate ISO · A Division of Flat Rate Processing · FlatRateISO.com</span>
       <span><a href="https://flatrateprocessing.com" target="_blank" rel="noopener">FlatRateProcessing.com</a></span>
       <span style="display:inline-flex;align-items:center;gap:6px;">Powered by <a href="https://ipwebsolutions.net" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;vertical-align:middle;"><img src="images/ipw-logo-white.png" alt="IP Web Solutions" width="50" height="28" style="height:28px;vertical-align:middle;"> IP Web Solutions</a></span>
     </div>
   </div>
+<div class="ipw-legal-links" style="text-align:center;padding:14px 12px;font-size:.85rem;line-height:1.6;border-top:1px solid rgba(128,128,128,.18)"><a href="/privacy.html" style="color:inherit;text-decoration:underline;opacity:.85">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="/terms.html" style="color:inherit;text-decoration:underline;opacity:.85">Terms of Service</a></div>
 </footer>
 <script>
 document.querySelectorAll('.fade-on-scroll').forEach(el=>{

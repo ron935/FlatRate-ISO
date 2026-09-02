@@ -911,6 +911,17 @@
 .footer-network .net-partners a { display: inline-flex; align-items: center; height: 22px; opacity: .55; transition: opacity .2s ease; }
 .footer-network .net-partners a:hover { opacity: .9; }
 .footer-network .net-partners img { height: 22px; width: auto; filter: brightness(0) invert(1); }
+/* ── FAQ accordion (added 2026-07-17) ── */
+.faq-section{background:var(--gray-100);}
+.faq-list{max-width:840px;margin:0 auto;display:flex;flex-direction:column;gap:14px;}
+.faq-item{background:var(--white);border:1px solid var(--gray-300);border-radius:10px;overflow:hidden;transition:box-shadow .2s,border-color .2s;}
+.faq-item[open]{box-shadow:0 6px 24px rgba(10,22,40,.08);border-color:var(--gold);}
+.faq-item summary{list-style:none;cursor:pointer;padding:22px 26px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:16px;color:var(--navy);display:flex;justify-content:space-between;align-items:center;gap:16px;}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary::after{content:'+';font-family:'DM Mono',monospace;font-size:26px;color:var(--gold-accessible);line-height:1;flex-shrink:0;}
+.faq-item[open] summary::after{content:'−';}
+.faq-item .faq-a{padding:0 26px 24px;color:var(--text);font-size:15px;line-height:1.75;}
+.faq-item .faq-a a{color:var(--gold-accessible);text-decoration:underline;text-underline-offset:2px;}
 </style>
 <script type="application/ld+json">
 {
@@ -926,7 +937,7 @@
   },
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "2750 Holcomb Bridge Rd",
+    "streetAddress": "2750 Holcomb Bridge Rd, Suite 206",
     "addressLocality": "Alpharetta",
     "addressRegion": "GA",
     "postalCode": "30022",
@@ -947,11 +958,11 @@
   "name": "FlatRate ISO",
   "description": "Agent and ISO partner program for payment processing. Competitive splits, lifetime residuals, and full support.",
   "url": "https://flatrateiso.com",
-  "telephone": "+1-470-672-7198",
+  "telephone": "+1-470-470-5942",
   "email": "info@flatrateprocessing.com",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "2750 Holcomb Bridge Rd",
+    "streetAddress": "2750 Holcomb Bridge Rd, Suite 206",
     "addressLocality": "Alpharetta",
     "addressRegion": "GA",
     "postalCode": "30022",
@@ -973,12 +984,26 @@
 </script>
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192x192.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "What is FlatRate ISO?", "acceptedAnswer": {"@type": "Answer", "text": "FlatRate ISO is the agent and ISO partner program of Flat Rate Processing, a payment processing company operating since 2004 out of Atlanta, GA. It lets sales agents and ISOs earn lifetime residual income by helping businesses lower their card processing costs."}},
+    {"@type": "Question", "name": "How do I become a payment processing agent?", "acceptedAnswer": {"@type": "Answer", "text": "Apply online for free, complete FRP certification in 3–5 days, receive your agent kit, and start closing merchants. There's no upfront cost and no prior experience required — FRP trains everyone from scratch."}},
+    {"@type": "Question", "name": "What residual splits does FlatRate ISO offer?", "acceptedAnswer": {"@type": "Answer", "text": "Three tiers: Independent Agent at 70%, ISO Partner at 80%, and Master ISO at 85% — all with lifetime residual ownership and no clawbacks. You can upgrade tiers as your portfolio grows."}},
+    {"@type": "Question", "name": "Is there a cost to join FlatRate ISO?", "acceptedAnswer": {"@type": "Answer", "text": "No. There are $0 upfront fees and $0 clawbacks. You keep your residuals for the life of every account, even if you leave the program."}},
+    {"@type": "Question", "name": "What kinds of businesses do FlatRate ISO agents sell to?", "acceptedAnswer": {"@type": "Answer", "text": "Agents focus on high-value verticals including government agencies, auto repair shops, and restaurants, backed by vertical-specific toolkits, statement analysis tools, and the Government Portal."}},
+    {"@type": "Question", "name": "Why choose FlatRate ISO over other agent programs?", "acceptedAnswer": {"@type": "Answer", "text": "FlatRate ISO offers industry-high splits, lifetime residual ownership with no clawbacks or non-competes, free training and certification, a full suite of sales tools, and the backing of Flat Rate Processing's direct processor relationships since 2004."}}
+  ]
+}
+</script>
 </head>
 <body>
 
 <!-- TOPBAR -->
 <div class="topbar">
-  A Division of <strong><a href="https://flatrateprocessing.com" target="_blank" rel="noopener">Flat Rate Processing (FRP)</a></strong> · Est. 2004 · Atlanta, GA · Agent Support: <a href="tel:4706727198">470-672-7198</a>
+  A Division of <strong><a href="https://flatrateprocessing.com" target="_blank" rel="noopener">Flat Rate Processing (FRP)</a></strong> · Est. 2004 · Atlanta, GA · Agent Support: <a href="tel:4704705942">470-470-5942</a>
 </div>
 
 <!-- NAV -->
@@ -1483,6 +1508,24 @@
   </div>
 </section>
 
+<!-- FAQ (added 2026-07-17) -->
+<section class="faq-section">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:48px;">
+      <div class="section-eyebrow">Answers</div>
+      <h2 class="section-title">FlatRate ISO — FAQ</h2>
+      <p class="section-sub" style="margin:0 auto;">Quick answers to the questions agents ask most before partnering with FlatRate ISO.</p>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item"><summary>What is FlatRate ISO?</summary><div class="faq-a">FlatRate ISO is the agent and ISO partner program of Flat Rate Processing, a payment processing company operating since 2004 out of Atlanta, GA. It lets sales agents and ISOs earn lifetime residual income by helping businesses lower their card processing costs.</div></details>
+      <details class="faq-item"><summary>How do I become a payment processing agent?</summary><div class="faq-a">Apply online for free, complete FRP certification in 3–5 days, receive your agent kit, and start closing merchants. There's no upfront cost and no prior experience required — FRP trains everyone from scratch. See <a href="how-it-works.html">how it works</a>.</div></details>
+      <details class="faq-item"><summary>What residual splits does FlatRate ISO offer?</summary><div class="faq-a">Three tiers: Independent Agent at 70%, ISO Partner at 80%, and Master ISO at 85% — all with lifetime residual ownership and no clawbacks. You can upgrade tiers as your portfolio grows. See the full <a href="splits.html">split schedule</a>.</div></details>
+      <details class="faq-item"><summary>Is there a cost to join FlatRate ISO?</summary><div class="faq-a">No. There are $0 upfront fees and $0 clawbacks. You keep your residuals for the life of every account, even if you leave the program.</div></details>
+      <details class="faq-item"><summary>What kinds of businesses do FlatRate ISO agents sell to?</summary><div class="faq-a">Agents focus on high-value verticals including government agencies, auto repair shops, and restaurants, backed by vertical-specific toolkits, statement analysis tools, and the Government Portal.</div></details>
+      <details class="faq-item"><summary>Why choose FlatRate ISO over other agent programs?</summary><div class="faq-a">FlatRate ISO offers industry-high splits, lifetime residual ownership with no clawbacks or non-competes, free training and certification, a full suite of sales tools, and the backing of Flat Rate Processing's direct processor relationships since 2004.</div></details>
+    </div>
+  </div>
+</section>
 </main>
 <!-- FOOTER -->
 <footer>
@@ -1519,7 +1562,7 @@
       <div>
         <div class="footer-col-title">Contact</div>
         <ul class="footer-links">
-          <li><a href="tel:4706727198">470-672-7198</a></li>
+          <li><a href="tel:4704705942">470-470-5942</a></li>
           <li><a href="mailto:iso@flatrateiso.com">iso@flatrateiso.com</a></li>
           <li><a href="https://maps.google.com/?q=Atlanta,+GA" target="_blank" rel="noopener">Atlanta, GA</a></li>
           <li><a href="https://flatrateprocessing.com" target="_blank" rel="noopener">FlatRateProcessing.com</a></li>
@@ -1537,6 +1580,7 @@
         <a href="https://kioxx.com" target="_blank" rel="noopener">Kioxx</a>
         <a href="https://techconfia.com" target="_blank" rel="noopener">Tech Confia</a>
         <a href="https://syncsalesystems.com" target="_blank" rel="noopener">Sync Sale POS</a>
+        <a href="https://flatrateprocessing.com" target="_blank" rel="noopener">Flat Rate Processing</a>
       </div>
       <div class="net-partners">
         <span class="net-plabel">Partners</span>
@@ -1545,13 +1589,14 @@
       </div>
     </div>
         <div class="ipw-network" style="text-align:center;padding:18px 0 0;margin-top:18px;border-top:1px solid rgba(255,255,255,0.1);font-size:0.85rem;color:rgba(255,255,255,0.5);">
-      <span>Our Solutions: </span><a href="https://ipwebsolutions.net" target="_blank" rel="noopener">IP Web Solutions — Web Development & Digital Marketing</a> · <a href="https://ippayware.net" target="_blank" rel="noopener">IP Payware — Payment Processing & POS</a> · <a href="https://aipayware.com" target="_blank" rel="noopener">AI Payware — Payments for the AI Economy</a> · <a href="https://everythingbutthefood.net" target="_blank" rel="noopener">Everything But The Food — Restaurant POS Solutions</a> · <a href="https://kioxx.com" target="_blank" rel="noopener">Kioxx — Self-Service Kiosk & POS</a> · <a href="https://techconfia.com" target="_blank" rel="noopener">Tech Confia — Bilingual Payments & Dual Pricing</a> · <a href="https://syncsalesystems.com" target="_blank" rel="noopener">Sync Sale POS — Colorado POS & Payments</a></div>
+      <span>Our Solutions: </span><a href="https://ipwebsolutions.net" target="_blank" rel="noopener">IP Web Solutions — Web Development & Digital Marketing</a> · <a href="https://ippayware.net" target="_blank" rel="noopener">IP Payware — Payment Processing & POS</a> · <a href="https://aipayware.com" target="_blank" rel="noopener">AI Payware — Payments for the AI Economy</a> · <a href="https://everythingbutthefood.net" target="_blank" rel="noopener">Everything But The Food — Restaurant POS Solutions</a> · <a href="https://kioxx.com" target="_blank" rel="noopener">Kioxx — Self-Service Kiosk & POS</a> · <a href="https://techconfia.com" target="_blank" rel="noopener">Tech Confia — Bilingual Payments & Dual Pricing</a> · <a href="https://syncsalesystems.com" target="_blank" rel="noopener">Sync Sale POS — Colorado POS & Payments</a> · <a href="https://flatrateprocessing.com" target="_blank" rel="noopener">Flat Rate Processing — Merchant Payment Processing</a></div>
 <div class="footer-bottom">
       <span>© 2026 FlatRate ISO · A Division of Flat Rate Processing · All Rights Reserved</span>
       <span>FlatRateISO.com · <a href="https://flatrateprocessing.com" target="_blank" rel="noopener">FlatRateProcessing.com</a></span>
       <span style="display:inline-flex;align-items:center;gap:6px;">Powered by <a href="https://ipwebsolutions.net" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;vertical-align:middle;"><img src="images/ipw-logo-white.png" alt="IP Web Solutions" width="50" height="28" style="height:28px;vertical-align:middle;"> IP Web Solutions</a></span>
     </div>
   </div>
+<div class="ipw-legal-links" style="text-align:center;padding:14px 12px;font-size:.85rem;line-height:1.6;border-top:1px solid rgba(128,128,128,.18)"><a href="/privacy.html" style="color:inherit;text-decoration:underline;opacity:.85">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="/terms.html" style="color:inherit;text-decoration:underline;opacity:.85">Terms of Service</a></div>
 </footer>
 
 <script>
