@@ -632,9 +632,16 @@ document.getElementById('launch-kit-form').addEventListener('submit', function(e
   formData.append('message', '[Source: Partner Launch Kit] Partner application submitted');
 
   var turnstileResponse = form.querySelector('[name="cf-turnstile-response"]');
-  if (turnstileResponse && turnstileResponse.value) {
-    formData.append('cf-turnstile-response', turnstileResponse.value);
+  if (!turnstileResponse || !turnstileResponse.value) {
+    // No token means the widget has not finished, or was blocked. Submitting
+    // without one is a guaranteed 422 that reaches the visitor as a generic
+    // "something went wrong" and loses the application, so stop here and say
+    // what is actually needed.
+    status.textContent = 'Please complete the security check just above the button, then submit again.';
+    status.style.color = '#ef4444';
+    return;
   }
+  formData.append('cf-turnstile-response', turnstileResponse.value);
 
   // Attach UTM params and referrer for lead source attribution
   try {
